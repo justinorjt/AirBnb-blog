@@ -1,0 +1,15 @@
+.inner{
+	flex: 1 1 auto;
+	align-self: stretch;	
+}
+
+.content-wrapper{
+	width: 100%;
+	min-height: 100vh;
+	overflow: hidden;
+	/*transition: .5s;*/
+}
+
+#wrapper{
+	height: 100vh;
+}

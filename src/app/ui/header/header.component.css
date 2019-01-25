@@ -1,0 +1,25 @@
+.navbar{
+	background-color: #EEEEEf;
+	box-shadow: 0px -5px 25px black;
+}
+
+
+@media screen and (max-width: 768px){
+	.navbar-brand{
+		margin-right: auto;
+		margin-left: auto;
+	}	
+}
+
+@media screen and (max-width: 615px){
+	ul li{
+		margin-bottom: 10px;
+	}
+	.zebuttons{display: block;
+    text-align: center;
+	}
+}
+
+@media screen and (max-width:705px){
+	ul{width: 100%}
+}

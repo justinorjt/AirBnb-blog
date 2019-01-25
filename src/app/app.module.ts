@@ -3,14 +3,20 @@ import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
+import { UiModule } from './ui/ui.module';
+import { LandingpageComponent } from './landingpage/landingpage.component';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    LandingpageComponent,
+    PageNotFoundComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    UiModule,
+    AppRoutingModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
