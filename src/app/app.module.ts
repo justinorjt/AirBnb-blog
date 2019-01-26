@@ -6,17 +6,21 @@ import { AppRoutingModule } from './app-routing.module';
 import { UiModule } from './ui/ui.module';
 import { LandingpageComponent } from './landingpage/landingpage.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { BlogPostFormComponent } from './blog-post-form/blog-post-form.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
     AppComponent,
     LandingpageComponent,
-    PageNotFoundComponent
+    PageNotFoundComponent,
+    BlogPostFormComponent
   ],
   imports: [
     BrowserModule,
     UiModule,
-    AppRoutingModule,
+    FormsModule,
+    AppRoutingModule, //<---must be the last in the list
   ],
   providers: [],
   bootstrap: [AppComponent]

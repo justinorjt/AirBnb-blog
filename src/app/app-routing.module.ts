@@ -4,10 +4,12 @@ import { RouterModule, Routes } from '@angular/router';
 
 import { LandingpageComponent } from './landingpage/landingpage.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { BlogPostFormComponent } from './blog-post-form/blog-post-form.component';
 
 const routes: Routes = [
   { path: '', component: LandingpageComponent },
   { path: 'home', component: LandingpageComponent },
+  { path: 'blog-post-form', component: BlogPostFormComponent },
   // { path: 'investor', loadChildren: '@app/investor/investor.module#InvestorModule' },
   // { path: 'sponsor', loadChildren: '@app/sponsor/sponsor.module#SponsorModule' },
   // { path: 'auditor', loadChildren: '@app/auditor/auditor.module#AuditorModule' },

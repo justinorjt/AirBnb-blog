@@ -4,6 +4,8 @@
     <p class="lead">This is a modified jumbotron that occupies the entire horizontal space of its parent.</p>
   </div>
 </div>
+
+<button routerLink="/blog-post-form">Post New Article</button>
 <div class="track d-flex">
 
 	<section class="left col-md-4 bg-primary">
@@ -15,19 +17,20 @@
 			<div class="headline">Headline of the Story</div>
 		</article>
 	</section>
-	<section class="main col-md-5 bg-secondary">
+	<section class="main col-md-5 bg-secondary p-0">
 		<article class="ms text-center">
 			<div class="video">
-				<img src="https://dummyimage.com/600x400/000/fff" width="100%" height="auto">
+				<iframe width="100%" height="240px" src="https://www.youtube.com/embed/_xRoEXcVDow" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+				<!-- <img src="https://dummyimage.com/600x400/000/fff" width="100%" height="auto"> -->
 			</div>
-			<div class="caption">My Latest Video upload</div>
-			<div class="sub text-left"><small>date, time, topic, hashtag</small> </div>
+			<!-- <div class="caption">My Latest Video upload</div> -->
+			<!-- <div class="sub text-left"><small>date, time, topic, hashtag</small> </div> -->
 		</article>
 	</section>
 	<section class="right col-md-3 bg-info">
 		<p>Latest Stories</p>
-		<article class="ls text-center">
-			<div>Headline of the story</div>
+		<article class="ls text-left">
+			<div class="border-bottom pb-2">Headline of the story</div>
 		</article>
 	</section>
 </div>
