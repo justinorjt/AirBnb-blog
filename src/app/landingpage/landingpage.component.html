@@ -1,8 +1,18 @@
+<div class="d-flex mx-auto m-2 align-items-center" style="min-width: 300px; max-width: 900px;">
+	<h3 class="mr-3">NEWS!</h3>
+	<div class="border p-2 d-flex " style="min-width: 800px;">
+		<a *ngFor="let article of bnbArticles" class="border p-1 m-2 col-md-3" href="{{article.link | slice:7:800}}">
+			<b>{{article.title | slice:0:30}}</b>
+			<p>{{article.desc | slice:0:46}}...</p>
+		</a>
+	</div>
+</div>
+<br>
 <div class="jumbotron jumbotron-fluid">
-  <div class="container">
-    <h1 class="display-4">Main Story or Big Logo Presentation</h1>
-    <p class="lead">This is a modified jumbotron that occupies the entire horizontal space of its parent.</p>
-  </div>
+	<div class="container">
+		<h1 class="display-4">Main Story or Big Logo Presentation</h1>
+		<p class="lead">This is a modified jumbotron that occupies the entire horizontal space of its parent.</p>
+	</div>
 </div>
 
 <button routerLink="/blog-post-form">Post New Article</button>
