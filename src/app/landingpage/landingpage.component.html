@@ -14,6 +14,9 @@
 		<p class="lead">This is a modified jumbotron that occupies the entire horizontal space of its parent.</p>
 	</div>
 </div>
+<div *ngFor="let post of blogposts; let i=index;">
+	<strong>{{post._id}}</strong>
+</div>
 
 <button routerLink="/blog-post-form">Post New Article</button>
 <div class="track d-flex">

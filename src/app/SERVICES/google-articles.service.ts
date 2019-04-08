@@ -15,10 +15,8 @@ export class GoogleArticlesService {
 		) { }
 
 	getArticles() {
-		const url = `${this.base_URL}/articles`;
+		const url = `${this.base_URL}/bnbnews`;
 		return this.http.get(url);
-		// .map(
-  //       (response) => {return response.json()});
 	}
 
 

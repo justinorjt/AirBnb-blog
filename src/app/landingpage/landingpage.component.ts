@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { GoogleArticlesService } from '../services/google-articles.service';
+import { BlogPostService } from 'src/app/SERVICES/blog-post.service'
 
 @Component({
 	selector: 'app-landingpage',
@@ -9,12 +10,13 @@ import { GoogleArticlesService } from '../services/google-articles.service';
 export class LandingpageComponent implements OnInit {
 
 	bnbArticles:any;
+	blogposts:any;
 
-	constructor(private gas: GoogleArticlesService) { }
+	constructor(private gas: GoogleArticlesService, private bps: BlogPostService) { }
 
 	ngOnInit() {
 		this.fetchArticles();
-		// console.log(this.bnbArticles)
+		this.displayBlogPosts();
 	}
 
 	fetchArticles(){
@@ -22,6 +24,17 @@ export class LandingpageComponent implements OnInit {
 		.subscribe((data) => {
 			console.log(data);
 			this.bnbArticles = data;
+		});
+	}
+
+	displayBlogPosts(){
+		return this.bps.getAllBlogPost()
+		.subscribe((data) => {
+			// for
+			const objectdata = Array.toString.parse(data);
+
+			console.log(data);
+			this.blogposts = data;
 		});
 	}
 }
