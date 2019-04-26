@@ -29,7 +29,7 @@ export class BlogPostFormComponent implements OnInit {
 
     this.bps.createBlogPost(bp).subscribe((data) => {console.log(data); });
 
-    console.log(bp);
+    // console.log(bp);
   }
 
 }

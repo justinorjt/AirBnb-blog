@@ -14,9 +14,6 @@
 		<p class="lead">This is a modified jumbotron that occupies the entire horizontal space of its parent.</p>
 	</div>
 </div>
-<div *ngFor="let post of blogposts; let i=index;">
-	<strong>{{post._id}}</strong>
-</div>
 
 <button routerLink="/blog-post-form">Post New Article</button>
 <div class="track d-flex">
@@ -42,8 +39,15 @@
 	</section>
 	<section class="right col-md-3 bg-info">
 		<p>Latest Stories</p>
-		<article class="ls text-left">
-			<div class="border-bottom pb-2">Headline of the story</div>
+		<article *ngFor="let post of blogposts; let i=index;" class="ls text-left">
+			<div class="border-bottom pb-2">
+				<strong>{{post.header}}</strong>
+				<p *ngIf="post.content.length > 80; else shortPost">{{post.content | slice:0:80 }}...</p>
+				<ng-template #shortPost><p>{{post.content}}</p></ng-template>
+				<small *ngIf="post.author">By: {{post.author}}</small>
+				<small *ngIf="post.category">, Category: {{post.category}}</small><br>
+				<small style="color: grey;" *ngIf="post.dateCreated">Date Posted: {{post.dateCreated}}</small><br>
+			</div>
 		</article>
 	</section>
 </div>

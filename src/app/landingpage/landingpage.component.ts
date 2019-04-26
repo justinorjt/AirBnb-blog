@@ -10,7 +10,7 @@ import { BlogPostService } from 'src/app/SERVICES/blog-post.service'
 export class LandingpageComponent implements OnInit {
 
 	bnbArticles:any;
-	blogposts:any;
+	blogposts:any = [];
 
 	constructor(private gas: GoogleArticlesService, private bps: BlogPostService) { }
 
@@ -29,12 +29,11 @@ export class LandingpageComponent implements OnInit {
 
 	displayBlogPosts(){
 		return this.bps.getAllBlogPost()
-		.subscribe((data) => {
+		.subscribe((data: string) => {
 			// for
-			const objectdata = Array.toString.parse(data);
-
-			console.log(data);
-			this.blogposts = data;
+			const objectdata = JSON.parse(data);
+			console.log(objectdata);
+			this.blogposts = objectdata;
 		});
 	}
 }

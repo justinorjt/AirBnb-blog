@@ -34,11 +34,10 @@ export class BlogPostService {
 			'Content-Type': 'application/json',
 		});
 		const url = `${this.base_URL}/get_posts`;
-		return this.http.get<any>(url,{headers: httpHeaders} )
-		// .pipe(map((data: any) => {
-		// 	return data;
-		// }));
-
+		return this.http.get<any>(url, {headers: httpHeaders} )
+		.pipe(map((data) => {
+			return data;
+		}));
 	}
 
 	blogPostDetail(){
