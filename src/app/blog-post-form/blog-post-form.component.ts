@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { BlogPost } from 'src/app/shared/models/blogpost.model';
 import { FormsModule } from '@angular/forms';
-import { BlogPostService } from 'src/app/SERVICES/blog-post.service'
+import { BlogPostService } from 'src/app/_services/blog-post.service'
 
 @Component({
   selector: 'app-blog-post-form',

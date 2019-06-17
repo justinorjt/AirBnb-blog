@@ -1,0 +1,11 @@
+<h5>Signup</h5>
+
+<form #signup="ngForm" (ngSubmit)="onSubmit(signup)" class="needs-validation" novalidate>
+	<label>Email</label>
+	<input type="email" name="email" #email ngModel>
+	<label>Password</label>
+	<input type="password" name="password" ngModel>
+	<button type="submit" class="btn btn-info">Signup</button>
+</form>
+
+<div>{{email.value}}</div>

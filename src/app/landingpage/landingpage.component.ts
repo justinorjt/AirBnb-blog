@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { GoogleArticlesService } from '../services/google-articles.service';
-import { BlogPostService } from 'src/app/SERVICES/blog-post.service'
+import { GoogleArticlesService } from '../_services/google-articles.service';
+import { BlogPostService } from 'src/app/_services/blog-post.service'
+import { AuthService } from 'src/app/_services/auth.service'
 
 @Component({
 	selector: 'app-landingpage',
@@ -8,11 +9,15 @@ import { BlogPostService } from 'src/app/SERVICES/blog-post.service'
 	styleUrls: ['./landingpage.component.css']
 })
 export class LandingpageComponent implements OnInit {
-
+	loggedIn:boolean;
 	bnbArticles:any;
 	blogposts:any = [];
 
-	constructor(private gas: GoogleArticlesService, private bps: BlogPostService) { }
+	constructor(
+		private gas: GoogleArticlesService, 
+		private bps: BlogPostService,
+		private auth: AuthService,
+		) { }
 
 	ngOnInit() {
 		this.fetchArticles();
@@ -35,5 +40,9 @@ export class LandingpageComponent implements OnInit {
 			console.log(objectdata);
 			this.blogposts = objectdata;
 		});
+	}
+
+	checkCred(){
+		// this.auth.
 	}
 }

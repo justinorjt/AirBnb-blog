@@ -17,6 +17,9 @@ export class Comment{
 	constructor(
 		public author?:string,
 		public content?:string,
+		public approved?:boolean,
+		public liked?:boolean,
+		public reply?:Comment[],
 		public publishDate?:string,
 		){}
 }
