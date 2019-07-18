@@ -7,7 +7,7 @@ import { AuthService } from 'src/app/_services/auth.service'
   providedIn: 'root'
 })
 
-export class AuthGuard implements CanActivate, CanActivateChild {
+export class AuthGuard implements CanActivate {
   constructor( private authService: AuthService){}
 
   canActivate(

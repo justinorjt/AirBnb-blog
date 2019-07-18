@@ -20,7 +20,7 @@ export class BlogPostService {
 		const httpHeaders = new HttpHeaders ({
 			'Content-Type': 'application/json',
 		});
-		const url = `${this.base_URL}/add_post`;
+		const url = `${this.base_URL}/blogpost`;
 		return this.http.post<any>(url, blogpost, {headers: httpHeaders})
 		.pipe(map((data: any) => {
 			return data;
@@ -33,7 +33,7 @@ export class BlogPostService {
 		const httpHeaders = new HttpHeaders ({
 			'Content-Type': 'application/json',
 		});
-		const url = `${this.base_URL}/get_posts`;
+		const url = `${this.base_URL}/blogpostlist`;
 		return this.http.get<any>(url, {headers: httpHeaders} )
 		.pipe(map((data) => {
 			return data;

@@ -1,6 +1,8 @@
 <div>
 	<button class="btn btn-dark" routerLink="/login">login</button>
 	<button class="btn btn-success" routerLink="/signup">signup</button>
+	<button class="btn btn-primary" routerLink="/blog-post-form">Create Blog Form</button>
+
 </div>
 
 <div class="d-flex mx-auto m-2 align-items-center" style="min-width: 300px; max-width: 900px;">
@@ -47,7 +49,7 @@
 		<article *ngFor="let post of blogposts; let i=index;" class="ls text-left">
 			<div class="border-bottom pb-2">
 				<strong>{{post.header}}</strong>
-				<p *ngIf="post.content.length > 80; else shortPost">{{post.content | slice:0:80 }}...</p>
+				<p *ngIf="post.content.length > 80; else shortPost" [innerHTML]="post.content">{{post.content | slice:0:80 }}...</p>
 				<ng-template #shortPost><p>{{post.content}}</p></ng-template>
 				<small *ngIf="post.author">By: {{post.author}}</small>
 				<small *ngIf="post.category">, Category: {{post.category}}</small><br>

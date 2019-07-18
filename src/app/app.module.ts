@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
+import { QuillModule } from 'ngx-quill';
 
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
@@ -29,6 +30,7 @@ import { AdminComponent } from './admin/admin.component';
     HttpClientModule,
     UiModule,
     FormsModule,
+    QuillModule.forRoot(),
     AppRoutingModule, //<---must be the last in the list
   ],
   providers: [],

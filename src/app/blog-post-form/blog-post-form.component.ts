@@ -1,35 +1,52 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ViewEncapsulation, OnInit } from '@angular/core';
 import { BlogPost } from 'src/app/shared/models/blogpost.model';
 import { FormsModule } from '@angular/forms';
-import { BlogPostService } from 'src/app/_services/blog-post.service'
+import { BlogPostService } from 'src/app/_services/blog-post.service';
+// import { QuillModule } from 'ngx-quill';
 
 @Component({
   selector: 'app-blog-post-form',
   templateUrl: './blog-post-form.component.html',
-  styleUrls: ['./blog-post-form.component.css']
+  styleUrls: ['./blog-post-form.component.css'],
+  encapsulation: ViewEncapsulation.None,
+
 })
 export class BlogPostFormComponent implements OnInit {
-// bp:BlogPost;
+
   constructor(private bps: BlogPostService) { }
+
+  previewPost: any;
+
+  editorStyle = {
+    height: '300px',
+    backgroundColor: 'white',
+  }
+
+  previewContent: string;
 
   ngOnInit() {
   }
 
-  SubmitPost(event){
+  SubmitPost(blogpost){
 
-    event.preventDefault();
-    const bp = new BlogPost()
+  
+    const bp = blogpost.value;
 
-    bp.header = (event.target.querySelector('#header').value);
-    bp.subHeader = (event.target.querySelector('#subheader').value);
-    bp.author = (event.target.querySelector('#author').value);
-    bp.content = (event.target.querySelector('#content').value);
-    bp.hashtags = (event.target.querySelector('#hashtags').value);
-    bp.category = (event.target.querySelector('#category').value);
+    this.previewPost = bp;
 
-    this.bps.createBlogPost(bp).subscribe((data) => {console.log(data); });
+    // this.bps.createBlogPost(bp).subscribe((data) => {console.log(data); });
 
-    // console.log(bp);
+  }
+
+  PreviewPost(content, postDetails){
+
+    const precontent = content; 
+
+    this.previewPost = postDetails.value;
+
+    this.previewContent = precontent;
+
+    // console.log(this.previewContent)
   }
 
 }
