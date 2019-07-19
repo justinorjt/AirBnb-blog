@@ -24,6 +24,8 @@ export class BlogPostFormComponent implements OnInit {
 
   previewContent: string;
 
+  modalClosed: boolean = true;
+
   ngOnInit() {
   }
 
@@ -40,13 +42,16 @@ export class BlogPostFormComponent implements OnInit {
 
   PreviewPost(content, postDetails){
 
-    const precontent = content; 
-
     this.previewPost = postDetails.value;
 
-    this.previewContent = precontent;
+    this.previewContent = content;
 
-    // console.log(this.previewContent)
+    this.modalClosed = false;
+
+  }
+
+  exitPreview(){
+    this.modalClosed = true;
   }
 
 }

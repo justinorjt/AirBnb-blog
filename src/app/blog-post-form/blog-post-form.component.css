@@ -2,3 +2,29 @@ img{
 	/*max-height: 380px !important;*/
 	max-width: 400px !important;
 }
+
+.previewModal{
+	width: 100%;
+	height: 100%;
+	position: fixed;
+	top: 0;
+	display: flex;
+	background-color: rgba(0,0,0,.7);
+	justify-content: center;
+	align-items: center;
+	z-index: 1000;
+}
+
+.modalContent{
+	max-height: 80%;
+	background-color: white;
+	overflow: scroll;
+}
+
+.modalClose{
+	position: absolute;
+	left: -99999px;
+	background-color: transparent;
+	width: 0;
+	height: 0;
+}

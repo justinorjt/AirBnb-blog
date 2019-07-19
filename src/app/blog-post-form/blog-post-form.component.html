@@ -38,28 +38,31 @@
 						</select>					
 					</div>
 					<div class="card-footer text-center">
-						<button class="btn btn-success mx-4" (click)="SubmitPost(blogpost)">Submit</button>
 						<button class="btn btn-primary" (click)="PreviewPost(content.value,blogpost)" >Preview</button>
+						<button class="btn btn-success mx-4" (click)="SubmitPost(blogpost)">Submit</button>
 					</div>
 				</form>
 			</div>
-			<section>
-				<div class="col-md-9 bg-light p-4">
-					<h3 class="border">Output</h3>
-					<br>
-					<h1>{{previewPost?.header}}</h1>
-					<h5>{{previewPost?.description}}</h5>
-					<p>{{previewPost?.author}}</p>
-					<br>
-					<p [innerHTML]="previewContent"></p>
-					<br>
-					<small>
-						<p>{{previewPost?.hashtags}}</p>
-						<p>{{previewPost?.category}}</p>
-					</small>
-
-				</div>
-			</section>
+			
 		</div>
 	</div>
 </div>
+<section class="previewModal" [class.modalClose]="modalClosed">
+	<div class="col-md-9 card modalContent" style="max-height: 80%;">
+		<h3 class="card-header">Preview</h3>
+		<br>
+		<h1>{{previewPost?.header}}</h1>
+		<h5>{{previewPost?.description}}</h5>
+		<p>{{previewPost?.author}}</p>
+		<br>
+		<p [innerHTML]="previewContent"></p>
+		<br>
+		<small>
+			<p>{{previewPost?.hashtags}}</p>
+			<p>{{previewPost?.category}}</p>
+		</small>
+		<div class="modal-footer">
+			<button (click)="exitPreview()" class="btn btn-danger">Close</button>
+		</div>
+	</div>
+</section>
