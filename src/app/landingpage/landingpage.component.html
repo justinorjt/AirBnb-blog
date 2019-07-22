@@ -7,11 +7,12 @@
 
 <div class="d-flex mx-auto m-2 align-items-center" style="min-width: 300px; max-width: 900px;">
 	<h3 class="mr-3">NEWS!</h3>
-	<div class="border p-2 d-flex " style="min-width: 800px;">
+	<div class="border p-2 d-flex " style="min-width: 800px;  overflow-x: scroll;">
 		<a *ngFor="let article of bnbArticles" class="border p-1 m-2 col-md-3" href="{{article.link | slice:7:800}}">
 			<b>{{article.title | slice:0:30}}</b>
 			<p>{{article.desc | slice:0:46}}...</p>
 		</a>
+		<div class="p-1"></div>
 	</div>
 </div>
 <br>
@@ -25,7 +26,7 @@
 <button *ngIf="loggedIn" routerLink="/blog-post-form">Post New Article</button>
 <div class="track d-flex">
 
-	<section class="left col-md-4 bg-primary">
+	<section class="left col-md-4 bg-light">
 		<p>Top Stories</p>
 		<article class="ts text-center">
 			<div class="">
@@ -34,23 +35,24 @@
 			<div class="headline">Headline of the Story</div>
 		</article>
 	</section>
-	<section class="main col-md-5 bg-secondary p-0">
+	<section class="main col-md-5 bg-light p-0">
 		<article class="ms text-center">
 			<div class="video">
+				<p class="text-left">Recent Vidoes</p>
 				<iframe width="100%" height="240px" src="https://www.youtube.com/embed/_xRoEXcVDow" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-				<!-- <img src="https://dummyimage.com/600x400/000/fff" width="100%" height="auto"> -->
 			</div>
-			<!-- <div class="caption">My Latest Video upload</div> -->
 			<!-- <div class="sub text-left"><small>date, time, topic, hashtag</small> </div> -->
 		</article>
 	</section>
-	<section class="right col-md-3 bg-info">
+	<section class="right col-md-3 bg-light">
 		<p>Latest Stories</p>
-		<article *ngFor="let post of blogposts; let i=index;" class="ls text-left">
+		<article *ngFor="let post of blogposts; let i=index;" class="text-left" >
 			<div class="border-bottom pb-2">
-				<strong>{{post.header}}</strong>
-				<p *ngIf="post.content.length > 80; else shortPost" [innerHTML]="post.content">{{post.content | slice:0:80 }}...</p>
-				<ng-template #shortPost><p>{{post.content}}</p></ng-template>
+				<h5><a routerLink="/post/{{post.titleLink}}" style="text-decoration: none; color: black;">
+					<strong>{{post.title | slice:0:80 }}</strong>
+				</a></h5>
+				
+				<p *ngIf="post.description">{{post.description}}</p>
 				<small *ngIf="post.author">By: {{post.author}}</small>
 				<small *ngIf="post.category">, Category: {{post.category}}</small><br>
 				<small style="color: grey;" *ngIf="post.dateCreated">Date Posted: {{post.dateCreated}}</small><br>

@@ -9,19 +9,20 @@ import { map } from 'rxjs/operators';
 export class BlogPostService {
 
 	base_URL = 'http://localhost:5000/api';
-	private _options = { headers: new HttpHeaders({ 'Content-Type': 'application/json' }) };
+	// private _options = { headers: new HttpHeaders({ 'Content-Type': 'application/json' }) };
 	articles= [];
+	httpHeaders = new HttpHeaders ({
+			'Content-Type': 'application/json',
+		});
 
 	constructor(
 		private http: HttpClient,
 		) { }
 
 	createBlogPost(blogpost:any): Observable<any> {
-		const httpHeaders = new HttpHeaders ({
-			'Content-Type': 'application/json',
-		});
-		const url = `${this.base_URL}/blogpost`;
-		return this.http.post<any>(url, blogpost, {headers: httpHeaders})
+		
+		const url = `${this.base_URL}/blogpost/`;
+		return this.http.post<any>(url, blogpost, {headers: this.httpHeaders})
 		.pipe(map((data: any) => {
 			return data;
 		}));
@@ -30,17 +31,17 @@ export class BlogPostService {
 	}
 
 	getAllBlogPost(){
-		const httpHeaders = new HttpHeaders ({
-			'Content-Type': 'application/json',
-		});
+		
 		const url = `${this.base_URL}/blogpostlist`;
-		return this.http.get<any>(url, {headers: httpHeaders} )
+		return this.http.get<any>(url, {headers: this.httpHeaders} )
 		.pipe(map((data) => {
 			return data;
 		}));
 	}
 
-	blogPostDetail(){
-
+	getBlogPost(titleLink): Observable<any>{
+	
+		const url = `${this.base_URL}/blogpost/?titleLink=${titleLink}`;
+		return this.http.get<any>(url, {headers: this.httpHeaders});
 	}
 }

@@ -1,7 +1,4 @@
-img{
-	/*max-height: 380px !important;*/
-	max-width: 400px !important;
-}
+
 
 .previewModal{
 	width: 100%;
@@ -18,7 +15,7 @@ img{
 .modalContent{
 	max-height: 80%;
 	background-color: white;
-	overflow: scroll;
+	/*overflow: scroll;*/
 }
 
 .modalClose{

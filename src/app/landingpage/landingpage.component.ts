@@ -42,6 +42,10 @@ export class LandingpageComponent implements OnInit {
 		});
 	}
 
+	viewPost(){
+		
+	}
+
 	checkCred(){
 		// this.auth.
 	}

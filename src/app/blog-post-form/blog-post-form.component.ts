@@ -2,7 +2,8 @@ import { Component, ViewEncapsulation, OnInit } from '@angular/core';
 import { BlogPost } from 'src/app/shared/models/blogpost.model';
 import { FormsModule } from '@angular/forms';
 import { BlogPostService } from 'src/app/_services/blog-post.service';
-// import { QuillModule } from 'ngx-quill';
+import { Router } from '@angular/router';
+
 
 @Component({
   selector: 'app-blog-post-form',
@@ -13,7 +14,10 @@ import { BlogPostService } from 'src/app/_services/blog-post.service';
 })
 export class BlogPostFormComponent implements OnInit {
 
-  constructor(private bps: BlogPostService) { }
+  constructor(
+    private bps: BlogPostService,
+    public router: Router,
+    ) { }
 
   previewPost: any;
 
@@ -31,12 +35,26 @@ export class BlogPostFormComponent implements OnInit {
 
   SubmitPost(blogpost){
 
-  
+
     const bp = blogpost.value;
+
+    const hyphenatedTitle = bp.title.replace(/[^a-z0-9+]+/gi, '+');
+
+    bp.titleLink = hyphenatedTitle;
+
+    // console.log(bp);
 
     this.previewPost = bp;
 
-    // this.bps.createBlogPost(bp).subscribe((data) => {console.log(data); });
+    this.bps.createBlogPost(bp).subscribe((data) => {
+      console.log(data); 
+      window.alert("You're post has been submitted");
+      this.router.navigate(['/home']);
+
+    },
+    (err) => {console.log(err);
+    });
+
 
   }
 

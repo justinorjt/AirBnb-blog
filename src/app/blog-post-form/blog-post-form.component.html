@@ -12,8 +12,8 @@
 						<input class="form-control" ngModel name="author" type="text" placeholder="Jane Smith">
 					</div>	
 					<div class="form-group col-md-9">
-						<label>Header</label>
-						<input class="form-control" ngModel name="header" type="text" placeholder="Main Headline">
+						<label>Title</label>
+						<input class="form-control" ngModel name="title" #title="ngModel" type="text" placeholder="Main Headline">
 					</div>
 					<div class="form-group col-md-9">
 						<label>Description</label>
@@ -32,9 +32,9 @@
 						<label>Category</label>
 						<select class="custom-select" ngModel name="category" id="category">
 							<option selected>Open this select menu</option>
-							<option value="1">Informational</option>
-							<option value="2">Entertainment</option>
-							<option value="3">News</option>
+							<option value=1>Informational</option>
+							<option value=2>Entertainment</option>
+							<option value=3>News</option>
 						</select>					
 					</div>
 					<div class="card-footer text-center">
@@ -50,17 +50,20 @@
 <section class="previewModal" [class.modalClose]="modalClosed">
 	<div class="col-md-9 card modalContent" style="max-height: 80%;">
 		<h3 class="card-header">Preview</h3>
-		<br>
-		<h1>{{previewPost?.header}}</h1>
-		<h5>{{previewPost?.description}}</h5>
-		<p>{{previewPost?.author}}</p>
-		<br>
-		<p [innerHTML]="previewContent"></p>
-		<br>
-		<small>
-			<p>{{previewPost?.hashtags}}</p>
-			<p>{{previewPost?.category}}</p>
-		</small>
+		<div class="" style="overflow: scroll;">
+			<br>
+			<h1>{{previewPost?.title}}</h1>
+			<h5>{{previewPost?.description}}</h5>
+			<p>{{previewPost?.author}}</p>
+			<br>
+			<p [innerHTML]="previewContent"></p>
+			<br>
+			<small>
+				<p>{{previewPost?.hashtags}}</p>
+				<p>{{previewPost?.category}}</p>
+			</small>
+		</div>
+		
 		<div class="modal-footer">
 			<button (click)="exitPreview()" class="btn btn-danger">Close</button>
 		</div>
