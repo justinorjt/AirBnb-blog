@@ -1,62 +1,90 @@
-<div>
-	<button class="btn btn-dark" routerLink="/login">login</button>
-	<button class="btn btn-success" routerLink="/signup">signup</button>
-	<button class="btn btn-primary" routerLink="/blog-post-form">Create Blog Form</button>
-
-</div>
-
-<div class="d-flex mx-auto m-2 align-items-center" style="min-width: 300px; max-width: 900px;">
-	<h3 class="mr-3">NEWS!</h3>
-	<div class="border p-2 d-flex " style="min-width: 800px;  overflow-x: scroll;">
-		<a *ngFor="let article of bnbArticles" class="border p-1 m-2 col-md-3" href="{{article.link | slice:7:800}}">
-			<b>{{article.title | slice:0:30}}</b>
-			<p>{{article.desc | slice:0:46}}...</p>
-		</a>
-		<div class="p-1"></div>
-	</div>
-</div>
-<br>
-<div class="jumbotron jumbotron-fluid">
+	
+<!-- <button class="btn btn-primary" routerLink="/blog-post-form">Create Blog Form</button> -->
+<!-- JUMBOTRON -->
+<div class="jumbotron jumbotron-fluid border" style="border-color: var(--light-green) !important; border-width: 10px !important;">
 	<div class="container">
-		<h1 class="display-4">Main Story or Big Logo Presentation</h1>
-		<p class="lead">This is a modified jumbotron that occupies the entire horizontal space of its parent.</p>
+		<div *ngFor="let post of blogposts; let i=index;">
+			<div *ngIf="i<1">
+				<h1 class="jumbo-text">{{post.title}}</h1>
+				<p class="lead" style="font-style: italic; color: var(--auto-red); font-size: 25px;">
+					{{post.description}}
+				</p>	
+				<div class="d-flex flex-column text-right" style="line-height: 1.2">
+					<span style="" *ngIf="post.author">By: {{post.author}}</span>
+					<span style="" *ngIf="post.category">Category: {{post.category}}</span>
+					<span style="" *ngIf="post.dateCreated">Date Posted: {{post.dateCreated}}</span>
+				</div>	
+			</div>
+			
+		</div>
 	</div>
 </div>
 
-<button *ngIf="loggedIn" routerLink="/blog-post-form">Post New Article</button>
-<div class="track d-flex">
+<button routerLink="/blog-post-form">Post New Article</button>
 
-	<section class="left col-md-4 bg-light">
-		<p>Top Stories</p>
-		<article class="ts text-center">
-			<div class="">
-				<img src="https://dummyimage.com/600x400/000/fff" width="100%" height="auto">
+<!-- TRACK WILL CHANGE FOR MOBILE -->
+<div class="track d-flex mb-5">
+
+	<section class="left col-md-3">
+		<p class="section-header">Latest Articles</p>
+		<article class="ts text-left">
+			<div class="d-flex flex-column">
+				<a *ngFor="let article of bnbArticles; let i=index">
+					<div *ngIf="i<3"  class="border-bottom pb-2 mb-2">
+						<h5><a href="{{article.link | slice:7:800}}" style="text-decoration: none; color: black;">
+							<strong>
+								{{article.title | slice:0:30}}
+							</strong>
+						</a></h5>
+						<p class="description-text" >{{article.desc | slice:0:46}}...</p>						
+					</div>
+				</a>
+				<div class="p-1"></div>
 			</div>
-			<div class="headline">Headline of the Story</div>
 		</article>
 	</section>
-	<section class="main col-md-5 bg-light p-0">
+	<section class="main col-md-5">
 		<article class="ms text-center">
 			<div class="video">
-				<p class="text-left">Recent Vidoes</p>
+				<p class="text-left section-header">Recent Vidoes</p>
 				<iframe width="100%" height="240px" src="https://www.youtube.com/embed/_xRoEXcVDow" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 			</div>
-			<!-- <div class="sub text-left"><small>date, time, topic, hashtag</small> </div> -->
 		</article>
 	</section>
-	<section class="right col-md-3 bg-light">
-		<p>Latest Stories</p>
-		<article *ngFor="let post of blogposts; let i=index;" class="text-left" >
-			<div class="border-bottom pb-2">
-				<h5><a routerLink="/post/{{post.titleLink}}" style="text-decoration: none; color: black;">
-					<strong>{{post.title | slice:0:80 }}</strong>
-				</a></h5>
-				
-				<p *ngIf="post.description">{{post.description}}</p>
-				<small *ngIf="post.author">By: {{post.author}}</small>
-				<small *ngIf="post.category">, Category: {{post.category}}</small><br>
-				<small style="color: grey;" *ngIf="post.dateCreated">Date Posted: {{post.dateCreated}}</small><br>
+	<section class="right col-md-4">
+		<p class="section-header">Trending Stories</p>
+		<article *ngFor="let post of blogposts; let i=index;" class="text-left">
+			<div *ngIf="i > 0 && i<4">
+				<div class="border-bottom pb-2 mb-2">
+					<h5><a routerLink="/post/{{post.titleLink}}" style="text-decoration: none; color: black;">
+						<strong>{{post.title | slice:0:80 }}</strong>
+					</a></h5>
+
+					<p *ngIf="post.description" class="description-text">{{post.description}}</p>
+					<div class="d-flex flex-column text-right">
+						<small *ngIf="post.author">By: {{post.author}}</small>
+						<small *ngIf="post.category">Category: {{post.category}}</small>
+						<small *ngIf="post.dateCreated">Date Posted: {{post.dateCreated}}</small>
+					</div>
+				</div>
 			</div>
 		</article>
 	</section>
 </div>
+
+<!-- KIT SECTION -->
+
+<section class="Kit-slider mt-5 mx-auto p-4" style="background-color: var(--light-green);">
+	<div class="slider-container bg-white border mx-auto" style="max-width: 900px; position: relative;">
+		<h3 class="section-header" style="position: absolute; top: -65px;">Checkout Our Custom Collections</h3>
+		<div class="slider-track d-flex" style="overflow-x: scroll;">
+			<a *ngFor="let article of bnbArticles; let i=index" class=" border col-md-3 p-2 m-2"  href="{{article.link | slice:7:800}}">
+				<div class="p-2">
+					<h5>{{article.title | slice:0:30}}</h5>
+					<p>{{article.desc | slice:0:46}}...</p>						
+				</div>
+			</a>
+		</div>		
+	</div>
+	
+</section>

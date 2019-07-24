@@ -1,0 +1,29 @@
+
+.section-header{
+	color: var(--dark-red);
+	font-weight: bold;
+	font-size: 36px;
+	line-height: 1;
+	letter-spacing: -3px;
+}
+
+small{
+	/*color: var(--dark-blue);*/
+	font-size: 10px;
+	font-weight: 600;
+}
+
+.jumbo-text{
+	color: var(--dark-red);
+	font-size: 78px;
+	letter-spacing: -3px;
+	font-weight: bold;
+}
+
+.description-text{
+	font-style: italic;
+	font-size: 14px;
+	font-weight: 400;
+	line-height: 1.2;
+	color: var(--auto-red);
+}

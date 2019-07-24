@@ -8,9 +8,55 @@ img{
 
 /*style for scroll bars*/
 
-/*style for buttons*/
 
 /*color variables*/
+:root {
+	/*GRAYS*/
+	--auto-gray:#D2CACF;
+	--dark-gray:#757173;
+
+	/*REDS*/
+	--auto-red:#FE3036;
+	--dark-red:#7c1619; /*For section headers*/
+	--light-red:#f9989b;
+
+	/*GREENS*/
+	--auto-green:#30ff91;
+	--dark-green:#1b8552;
+	--light-green:#c2ffe2;
+
+	/*BLUES*/
+	--auto-blue:#309eff;
+	--dark-blue:#1e5794;
+	--light-blue:#cce5ff;
+}
+
+/*style for buttons*/
+.grey-button{
+	background-color: var(--dark-gray);
+	color: white;
+	border-color: var(--auto-gray);
+}
+.grey-button:hover{
+	background-color: var(--auto-gray);
+}
+
+.blue-button{
+	background-color: var(--auto-blue);
+	color: white;
+	border-color: var(--dark-blue);
+}
+
+.blue-button:hover{
+	background-color: var(--light-blue);
+}
+
+.btn{
+	padding-top: .2em;
+	padding-bottom: .2em;
+}
+
+
 
 /*Font variables*/
 
