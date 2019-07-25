@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { GoogleArticlesService } from '../_services/google-articles.service';
 import { BlogPostService } from 'src/app/_services/blog-post.service'
 import { AuthService } from 'src/app/_services/auth.service'
+import { Observable, interval, timer } from 'rxjs';
 
 @Component({
 	selector: 'app-landingpage',
@@ -12,6 +13,8 @@ export class LandingpageComponent implements OnInit {
 	loggedIn:boolean;
 	bnbArticles:any;
 	blogposts:any = [];
+	slideIndex = 0;
+	timer = timer(2000,1000);
 
 	constructor(
 		private gas: GoogleArticlesService, 
@@ -22,6 +25,13 @@ export class LandingpageComponent implements OnInit {
 	ngOnInit() {
 		this.fetchArticles();
 		this.displayBlogPosts();
+		// setTimeout( ()=>{
+		// 	console.log('works')
+		// }, 5000)
+
+		interval(5000).subscribe((x) => {
+
+		});
 	}
 
 	fetchArticles(){
@@ -46,7 +56,8 @@ export class LandingpageComponent implements OnInit {
 		
 	}
 
-	checkCred(){
-		// this.auth.
+	carousel() {
+
+	//setup carousel and i frame movements tomorrow
 	}
 }
