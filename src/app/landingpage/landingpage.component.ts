@@ -3,6 +3,7 @@ import { GoogleArticlesService } from '../_services/google-articles.service';
 import { BlogPostService } from 'src/app/_services/blog-post.service'
 import { AuthService } from 'src/app/_services/auth.service'
 import { Observable, interval, timer } from 'rxjs';
+import { DomSanitizer } from '@angular/platform-browser';
 
 @Component({
 	selector: 'app-landingpage',
@@ -16,19 +17,21 @@ export class LandingpageComponent implements OnInit {
 	slideIndex = 0;
 	timer = timer(2000,1000);
 
+	collections = [
+		{"link":"https://kit.com/embed?url=https://kit.com/rakidzich/heavy-duty-airbnb-gear"},	
+		];
+
 	constructor(
 		private gas: GoogleArticlesService, 
 		private bps: BlogPostService,
 		private auth: AuthService,
+		private sanitizer: DomSanitizer,
 		) { }
 
 	ngOnInit() {
 		this.fetchArticles();
 		this.displayBlogPosts();
-		// setTimeout( ()=>{
-		// 	console.log('works')
-		// }, 5000)
-
+		
 		interval(5000).subscribe((x) => {
 
 		});
@@ -55,6 +58,9 @@ export class LandingpageComponent implements OnInit {
 	viewPost(){
 		
 	}
+
+	// frame = 'https://kit.com/rakidzich/heavy-duty-airbnb-gear';
+	// oneFrame = this.sanitizer.sanitize(this.frame, 'oke');
 
 	carousel() {
 

@@ -78,10 +78,14 @@
 	<div class="slider-container bg-white border mx-auto col-12" style="max-width: 1000px; position: relative;">
 		<h3 class="section-header" style="position: absolute; top: -65px;">Checkout Our Custom Collections</h3>
 		<div class="slider-track d-flex" style="overflow-x: scroll;">
-			
-			<iframe src="https://kit.com/embed?url=https://kit.com/rakidzich/heavy-duty-airbnb-gear" class="kitbox py-3 col-6" scrolling="no"></iframe>
 
-			<iframe src="https://kit.com/embed?url=https://kit.com/rakidzich/airbnb-photography-smartphone-kit" class="kitbox py-3 col-6" scrolling="no"></iframe>
+			<div *ngFor="let collection of collections">				
+				<iframe src="collection.link" class="kitbox py-3 col-6" scrolling="no"></iframe>
+			</div>
+			
+			<iframe src="https://kit.com/embed?url=https://kit.com/rakidzich/heavy-duty-airbnb-gear" class="kitbox py-3 col-6" scrolling="no"> Hello?</iframe>
+
+		<!-- 	<iframe src="https://kit.com/embed?url=https://kit.com/rakidzich/airbnb-photography-smartphone-kit" class="kitbox py-3 col-6" scrolling="no"></iframe>
 
 			<iframe src="https://kit.com/embed?url=https://kit.com/rakidzich/room-design-a-modern-navy-with-a-splash-of-yellow" class="kitbox py-3 col-6" scrolling="no"></iframe>
 			<iframe src="https://kit.com/embed?url=https://kit.com/rakidzich/airbnb-operations-essentials" class="kitbox py-3 col-6" scrolling="no"></iframe>
@@ -98,7 +102,7 @@
 			
 			<iframe src="https://kit.com/embed?url=https%3A%2F%2Fkit.com%2Frakidzich%2Fmy-newest-kitchen-and-cleaning-checklist" class="kitbox py-3 col-6" scrolling="no"></iframe>
 			
-			<iframe src="https://kit.com/embed?url=https%3A%2F%2Fkit.com%2Frakidzich%2Fmy-newest-living-room-checklist" class="kitbox py-3 col-6" scrolling="no"></iframe>
+			<iframe src="https://kit.com/embed?url=https%3A%2F%2Fkit.com%2Frakidzich%2Fmy-newest-living-room-checklist" class="kitbox py-3 col-6" scrolling="no"></iframe> -->
 
 
 		</div>		
