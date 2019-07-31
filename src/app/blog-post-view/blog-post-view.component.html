@@ -1,13 +1,15 @@
 <div class="container-fluid">
-	<div *ngIf="post" class="col-10 mx-auto">
-		<h1>{{post?.title}}</h1>
-		<h5>{{post?.description}}</h5>
+	<div *ngIf="post" class="col-md-8 mx-auto mt-5 pt-3">
+		<h1 class="title-text">{{post?.title}}</h1>
+		<h5 class="description-text">{{post?.description}}</h5>
 		<div>
-			<p>{{post?.dateCreated}}</p>
+			<p class="small-text mb-0">{{post?.author}}</p>
+			<p class="small-text mb-0">{{post?.dateCreated}}</p>
 		</div>
-		<p>{{post?.author}}</p>
 		<br>
-		<p [innerHTML]="post.content"></p>
+		<br>
+		<br>
+		<p style="font-size: large;" [innerHTML]="post.content"></p>
 		<br>
 		<small>
 			<p *ngIf="post.hashtags">Hashtags: {{post.hashtags}}</p>
