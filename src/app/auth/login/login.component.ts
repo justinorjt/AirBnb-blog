@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators, NgForm } from '@angular/forms';
 import { Router } from "@angular/router";
-import { User } from 'src/app/shared/models/user.model'
+import { User } from 'src/app/_models/user.model'
 import { AuthService } from 'src/app/_services/auth.service'
 
 @Component({
@@ -21,10 +21,10 @@ export class LoginComponent implements OnInit {
 	onSubmit(form:NgForm){
 		let creds = form.value;
 		this.isSubmitted = true;
-		console.log(form.value.email);
+		// console.log(form.value.email);
 
 		// this.auth.logIn(creds);
-		this.router.navigateByUrl('/admin');
+		this.router.navigate(['/admin/dashboard']);
 		// this.auth.logIn(form.value.email, form.value.password).subscribe(data => {
 			// 	console.log(data);
 			// },

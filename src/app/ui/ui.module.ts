@@ -4,17 +4,20 @@ import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { LayoutComponent } from './layout/layout.component';
 import { RouterModule } from '@angular/router';
+import { AuthenticatedNavComponent } from './authenticated-nav/authenticated-nav.component';
 
 @NgModule({
   declarations: [
   HeaderComponent, 
   FooterComponent, 
-  LayoutComponent,
+  LayoutComponent, 
+  AuthenticatedNavComponent,
   ],
   exports:[
   HeaderComponent, 
   FooterComponent, 
   LayoutComponent,
+  AuthenticatedNavComponent,
   ],
   imports: [
     CommonModule,

@@ -1,5 +1,5 @@
 import { Component, ViewEncapsulation, OnInit } from '@angular/core';
-import { BlogPost } from 'src/app/shared/models/blogpost.model';
+import { BlogPost } from 'src/app/_models/blogpost.model';
 import { FormsModule } from '@angular/forms';
 import { BlogPostService } from 'src/app/_services/blog-post.service';
 import { Router } from '@angular/router';

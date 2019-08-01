@@ -1,0 +1,7 @@
+.floating{
+	width: 200px;
+	position: fixed;
+	left: 10px;
+	top: 100px;
+	margin-right: 10px;
+}
