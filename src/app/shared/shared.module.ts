@@ -4,6 +4,8 @@ import { ProfileComponent } from './profile/profile.component';
 import { ViewAllPostsComponent } from './view-all-posts/view-all-posts.component';
 import { ViewUsersComponent } from './view-users/view-users.component';
 import { ViewCommentsComponent } from './view-comments/view-comments.component';
+// import { } from '.'
+import { MaterialModule } from '../material/material.module';
 
 @NgModule({
 	declarations: [
@@ -16,7 +18,8 @@ import { ViewCommentsComponent } from './view-comments/view-comments.component';
 	ProfileComponent,
 	],
 	imports: [
-	CommonModule
+	CommonModule,
+	MaterialModule,
 	]
 })
 export class SharedModule { }

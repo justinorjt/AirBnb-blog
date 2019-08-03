@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  API_URL: 'https://api.publicbloc.io/api',
+  // API_URL: 'https://api.publicbloc.io/api',
 
 };
 

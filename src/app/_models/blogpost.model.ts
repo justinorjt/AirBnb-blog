@@ -1,7 +1,7 @@
 export class BlogPost{
 	constructor(
 		public header?:string,
-		public subHeader?:string,
+		public description?:string,
 		public author?:string,
 		public image?:any[],
 		public content?:string,
@@ -11,6 +11,16 @@ export class BlogPost{
 		public hashtags?:string[],
 		public category?:string,
 		){}
+}
+
+export interface blogpost{
+	title: string;
+	titleLink:string;
+	author:string;
+	description:string;
+	content:any;
+	category:any;
+	dateCreated:string;
 }
 
 export class Comment{
