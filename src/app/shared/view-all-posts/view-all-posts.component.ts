@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild, AfterViewInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatTableModule, MatTableDataSource} from '@angular/material/table';
 import {MatSort} from '@angular/material/sort';
 import { BlogPostService } from '../../_services/blog-post.service';
@@ -23,20 +23,14 @@ export class ViewAllPostsComponent implements OnInit {
 
   ngOnInit() {
   	this.getAllPost();
-  	// this.dataSource.sort = this.sort;
-
   }
-
-  ngAfterViewInit(): void {
-    this.dataSource.sort = this.sort;
-  }
-
 
   public getAllPost = () => {
     this.bps.getAllBlogPost()
     .subscribe((res: string) => { 
     	const objectData = JSON.parse(res);
     	this.dataSource = new MatTableDataSource(objectData);
+    	this.dataSource.sort = this.sort;
     });
   }
 
