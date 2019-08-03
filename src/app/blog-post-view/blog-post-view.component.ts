@@ -26,9 +26,7 @@ export class BlogPostViewComponent implements OnInit {
 		const titleLink = this.route.snapshot.paramMap.get('titleLink');
 		this.bps.getBlogPost(titleLink)
 		.subscribe(post => { this.post = JSON.parse(post);
-			console.log(this.post);
 		});
-			console.log(titleLink);
 	}
 
 }

@@ -1,4 +1,4 @@
-import { Component, ViewEncapsulation, OnInit } from '@angular/core';
+import { Component, ViewEncapsulation, OnInit, Input } from '@angular/core';
 import { BlogPost } from 'src/app/_models/blogpost.model';
 import { FormsModule } from '@angular/forms';
 import { BlogPostService } from 'src/app/_services/blog-post.service';
@@ -13,6 +13,7 @@ import { Router } from '@angular/router';
 
 })
 export class BlogPostFormComponent implements OnInit {
+  @Input() editPost: any;
 
   constructor(
     private bps: BlogPostService,

@@ -6,6 +6,7 @@ import { ViewCommentsComponent } from '../shared/view-comments/view-comments.com
 import { ViewUsersComponent } from '../shared/view-users/view-users.component';
 import { AdminComponent } from './admin.component';
 // import { AuthenticatedNavComponent } from '../ui/authenticated-nav/authenticated-nav.component';
+import {BlogPostFormComponent} from '../shared/blog-post-form/blog-post-form.component';
 
 const routes: Routes = [
 { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
@@ -16,6 +17,7 @@ children: [
 { path: 'comments', component: ViewCommentsComponent },
 { path: 'users', component: ViewUsersComponent },
 { path: 'profile', component: ProfileComponent },
+{ path: 'blog-form', component: BlogPostFormComponent },
 ]
 }
 // ,

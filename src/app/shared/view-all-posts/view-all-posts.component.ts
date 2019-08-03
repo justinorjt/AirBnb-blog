@@ -2,7 +2,8 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatTableModule, MatTableDataSource} from '@angular/material/table';
 import {MatSort} from '@angular/material/sort';
 import { BlogPostService } from '../../_services/blog-post.service';
-import { blogpost} from '../../_models/blogpost.model'
+import { blogpost} from '../../_models/blogpost.model';
+import { BlogPostFormComponent } from '../blog-post-form/blog-post-form.component';
 
 @Component({
   selector: 'app-view-all-posts',
@@ -12,12 +13,15 @@ import { blogpost} from '../../_models/blogpost.model'
 export class ViewAllPostsComponent implements OnInit {
 
  public displayedColumns = ['title','author', 'category', 'dateCreated', 
- // 'details,', 'edit', 'delete'
+ 'update', 'delete',
  ];
 
  public dataSource= new MatTableDataSource();
 
  @ViewChild(MatSort, {static: true}) sort: MatSort;
+
+ public postLink;
+ public PostEdit;
 
   constructor(private bps: BlogPostService) { }
 
@@ -38,13 +42,14 @@ export class ViewAllPostsComponent implements OnInit {
     this.dataSource.filter = value.trim().toLowerCase();
 
   }
-
-  public redirectToDetails = (id: string) => {
-    
-  }
  
-  public redirectToUpdate = (id: string) => {
-    
+  public redirectToUpdate = (link: string) => {
+    this.postLink = link;
+    this.bps.getBlogPost(this.postLink).subscribe(data =>{
+    	const object = JSON.parse(data);
+    	this.PostEdit = object;
+    	console.log(this.PostEdit);
+    })
   }
  
   public redirectToDelete = (id: string) => {
