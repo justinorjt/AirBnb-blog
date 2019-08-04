@@ -2,43 +2,46 @@
 	<div class="col-md-10">
 		<div class="card">
 			<div class="card-header text-center">
-				<h4>Blog Post Form</h4>
-				
+				<h4 *ngIf="!editPost; else edit">Blog Post Form</h4>
+				<ng-template #edit>
+					<h4>Edit Post Form</h4>
+				</ng-template>
 			</div>
+
 			<div class="card-body">
 				<form #blogpost="ngForm" >
 					<div class="form-group col-md-9">
 						<label>Author</label>
-						<input class="form-control" ngModel name="author" type="text" placeholder="Jane Smith" value="editPost.author">
+						<input class="form-control" ngModel="{{editPost.author}}" name="author" type="text" placeholder="Jane Smith" #author>
 					</div>	
 					<div class="form-group col-md-9">
 						<label>Title</label>
-						<input class="form-control" ngModel name="title" #title="ngModel" type="text" placeholder="Main Headline" value="editPost.title">
+						<input class="form-control" ngModel="{{editPost.title}}" name="title" #title="ngModel" type="text" placeholder="Main Headline">
 					</div>
 					<div class="form-group col-md-9">
 						<label>Description</label>
-						<textarea class="form-control" ngModel name="description" type="text" placeholder="Description Details" value="editPost.description"></textarea>
+						<textarea class="form-control" ngModel="{{editPost.description}}" name="description" type="text" placeholder="Description Details"></textarea>
 					</div>
 					
 					<div class="form-group col-md-9">
 						<label>Content</label>
-						<quill-editor [styles]="editorStyle" ngModel name="content" #content="ngModel" value="editPost.content"></quill-editor>
+						<quill-editor [styles]="editorStyle" ngModel="{{editPost.content}}" name="content" #content="ngModel"></quill-editor>
 					</div>
 					<div class="form-group col-md-9">
 						<label>Hashtags</label>
-						<input class="form-control" ngModel name="hashtags" type="text" id="hashtags" placeholder="Separate by comma: (fun, happy, food, rent) " value="editPost.hashtags">
+						<input class="form-control" ngModel="{{editPost.hashtags}}" name="hashtags" type="text" id="hashtags" placeholder="Separate by comma: (fun, happy, food, rent)">
 					</div>
 					<div class="form-group col-md-9">
 						<label>Category</label>
-						<select class="custom-select" ngModel name="category" id="category" value="editPost.category">
-							<option selected>Open this select menu</option>
-							<option value="Informational">Informational</option>
-							<option value="Entertainment">Entertainment</option>
-							<option value="News">News</option>
+						<select class="custom-select" ngModel="{{editPost.category}}" name="category" id="category">
+							<option selected>{{editPost.category}}</option>
+							<option value="informational">Informational</option>
+							<option value="entertainment">Entertainment</option>
+							<option value="news">News</option>
 						</select>					
 					</div>
 					<div class="card-footer text-center">
-						<button class="btn btn-primary" (click)="PreviewPost(content.value,blogpost)" >Preview</button>
+						<button class="btn btn-primary" (click)="showPreview(content.value,blogpost)" >Preview</button>
 						<button *ngIf="editPost; else create" class="btn btn-success mx-4" (click)="SubmitPost(blogpost)">Save</button> 
 						<ng-template #create>
 							<button class="btn btn-success mx-4" (click)="SubmitPost(blogpost)">Submit</button>
@@ -46,14 +49,13 @@
 					</div>
 				</form>
 			</div>
-			
 		</div>
 	</div>
 </div>
 
 <!-- PREVIEW -->
 <section class="previewModal" [class.modalClose]="modalClosed">
-	<div class="col-md-9 card modalContent" style="max-height: 70%;">
+	<div class="col-md-8 card modalContent" style="max-height: 70%;">
 		<h3 class="card-header">Preview</h3>
 		<div class="" style="overflow-y: scroll;">
 			<br>

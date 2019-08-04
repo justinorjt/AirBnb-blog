@@ -1,6 +1,6 @@
 import { Component, ViewEncapsulation, OnInit, Input } from '@angular/core';
 import { BlogPost } from 'src/app/_models/blogpost.model';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, NgForm } from '@angular/forms';
 import { BlogPostService } from 'src/app/_services/blog-post.service';
 import { Router } from '@angular/router';
 
@@ -32,6 +32,10 @@ export class BlogPostFormComponent implements OnInit {
   modalClosed: boolean = true;
 
   ngOnInit() {
+    if (this.editPost) {
+      // code...
+      // this.editBlogPost(this.previewPost);
+    }
   }
 
   SubmitPost(blogpost){
@@ -59,7 +63,7 @@ export class BlogPostFormComponent implements OnInit {
 
   }
 
-  PreviewPost(content, postDetails){
+  showPreview(content, postDetails){
 
     this.previewPost = postDetails.value;
 
@@ -71,6 +75,10 @@ export class BlogPostFormComponent implements OnInit {
 
   exitPreview(){
     this.modalClosed = true;
+  }
+
+  editBlogPost(form){
+    form.setValue(this.editPost);
   }
 
 }
