@@ -3,7 +3,7 @@
 </mat-form-field>
 
 <div class="d-flex">
-	<button class="btn blue-button ml-auto mr-3" routerLink="/admin/dashboard/blog-form">Create Post</button>	
+	<a class="btn blue-button ml-auto mr-3"  routerLink="/admin/dashboard/blog-form" >Create Post</a>	
 </div>
 
 <table mat-table [dataSource]="dataSource" matSort>
@@ -42,7 +42,7 @@
 		<th mat-header-cell *matHeaderCellDef> Delete </th>
 		<td mat-cell *matCellDef="let element">
 			<!-- <button mat-icon-button class="" (click)="redirectToDelete(element.id)"> -->
-				<div class=" mx-1" (click)="redirectToDelete(element.id)">
+				<div class=" mx-1" (click)="redirectToDelete(element.titleLink)">
 					<i class="btn material-icons text-center" style="color: var(--dark-red);">delete</i>
 				</div>
 			</td>

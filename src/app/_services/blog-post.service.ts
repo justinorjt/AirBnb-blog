@@ -44,4 +44,24 @@ export class BlogPostService {
 		const url = `${this.base_URL}/blogpost/?titleLink=${titleLink}`;
 		return this.http.get<any>(url, {headers: this.httpHeaders});
 	}
+
+
+	updateBlogPost(titleLink: string, blogpost): Observable<any>{
+	
+		const url = `${this.base_URL}/blogpost/?titleLink=${titleLink}`;
+		return this.http.put<any>(url,blogpost, {headers: this.httpHeaders})
+		.pipe(map((data: any) =>{
+			return data;
+		}));
+	}
+
+	deleteBlogPost(titleLink): Observable<any>{
+
+		const url = `${this.base_URL}/blogpost/?titleLink=${titleLink}`;
+		return this.http.delete<any>(url, {headers: this.httpHeaders})
+		.pipe(map((data: any) => {
+			return data;
+		}));
+
+	}
 }

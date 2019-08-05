@@ -52,7 +52,13 @@ export class ViewAllPostsComponent implements OnInit {
     })
   }
  
-  public redirectToDelete = (id: string) => {
+  public redirectToDelete = (link: string) => {
+    this.postLink = link;
+    this.bps.deleteBlogPost(this.postLink).subscribe(data => {
+    	const object = JSON.parse(data);
+    	console.log(object);
+    	window.alert("This post " +object.title +" has been deleted");
+    })
     
   }
 

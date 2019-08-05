@@ -77,8 +77,26 @@ export class BlogPostFormComponent implements OnInit {
     this.modalClosed = true;
   }
 
-  editBlogPost(form){
-    form.setValue(this.editPost);
+  updateBlogPost(tLink, blogPost){
+    const bp = blogPost.value;
+
+    const hyphenatedTitle = bp.title.replace(/[^a-z0-9+]+/gi, '+');
+
+    bp.titleLink = hyphenatedTitle;
+
+    // console.log(bp);
+
+    this.previewPost = bp;
+
+    this.bps.updateBlogPost(tLink, bp).subscribe((data) => {
+      console.log(data); 
+      window.alert("You're post has been updated");
+      // this.router.navigate(['/home']);
+
+    },
+    (err) => {console.log(err);
+    });
+
   }
 
 }
