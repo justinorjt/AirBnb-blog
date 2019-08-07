@@ -26,11 +26,11 @@ export class SignupComponent implements OnInit {
 	onSubmit(form:NgForm){
 		let creds = form.value;
 
-		let newUser = new User(
-			form.value.email,
-			form.value.password,
-			'member',
-			);
+		let newUser: User ={
+			email: form.value.email,
+			password: form.value.password,
+			role:'member',
+			};
 		console.log(newUser);
 		// this.auth.signUp(newUser).subscribe(data => {
 		// 	console.log(data);

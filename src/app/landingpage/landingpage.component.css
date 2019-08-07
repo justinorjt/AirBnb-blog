@@ -7,6 +7,7 @@
 	letter-spacing: -3px;
 }
 
+
 small{
 	/*color: var(--dark-blue);*/
 	font-size: 10px;
@@ -19,6 +20,10 @@ small{
 	letter-spacing: -3px;
 	font-weight: bold;
 	text-decoration: none;
+}
+
+.to-click:hover{
+	color: var(--auto-red);
 }
 
 .description-text{

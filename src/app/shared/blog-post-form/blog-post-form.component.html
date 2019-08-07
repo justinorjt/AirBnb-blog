@@ -41,11 +41,11 @@
 						</select>					
 					</div>
 					<div class="card-footer text-center">
-						<button class="btn btn-primary" (click)="showPreview(content.value,blogpost)" >Preview</button>
-						<button *ngIf="editPost; else create" class="btn btn-success mx-4" 
+						<button class="btn blue-button" (click)="showPreview(content.value,blogpost)" >Preview</button>
+						<button *ngIf="editPost; else create" class="btn green-button mx-4" 
 						(click)="updateBlogPost(editPost.titleLink, blogpost)">Save</button> 
 						<ng-template #create>
-							<button class="btn btn-success mx-4" (click)="SubmitPost(blogpost)">Submit</button>
+							<button class="btn green-button mx-4" (click)="SubmitPost(blogpost)">Submit</button>
 						</ng-template>
 					</div>
 				</form>

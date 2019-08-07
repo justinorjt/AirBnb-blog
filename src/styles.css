@@ -54,11 +54,30 @@ img{
 	background-color: var(--light-blue);
 }
 
+.green-button{
+	background-color: var(--light-green);
+	color: var(--dark-green);
+	border-color: var(--dark-green);
+}
+
+.green-button:hover{
+	background-color: var(--auto-green);
+}
+
+
+
 .btn{
 	padding-top: .2em;
 	padding-bottom: .2em;
 }
 
+.section-header{
+	color: var(--dark-red);
+	font-weight: bold;
+	font-size: 36px;
+	line-height: 1;
+	letter-spacing: -3px;
+}
 
 
 /*Font variables*/

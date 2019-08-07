@@ -6,7 +6,7 @@
 		<div *ngFor="let post of blogposts; let i=index;">
 			<div *ngIf="i<1">
 				<h1 class="">
-					<a routerLink="/post/{{post.titleLink}}" class="jumbo-text">{{post.title}}</a>
+					<a routerLink="/post/{{post.titleLink}}" class="jumbo-text to-click">{{post.title}}</a>
 				</h1>
 				<p class="lead" style="font-style: italic; color: var(--auto-red); font-size: 25px;">
 					{{post.description}}
@@ -34,7 +34,7 @@
 				<a *ngFor="let article of bnbArticles; let i=index">
 					<div *ngIf="i<3"  class="border-bottom pb-2 mb-2">
 						<h5><a href="{{article.link | slice:7:800}}" style="text-decoration: none; color: black;">
-							<strong>
+							<strong class="to-click">
 								{{article.title | slice:0:30}}
 							</strong>
 						</a></h5>
@@ -58,8 +58,8 @@
 		<article *ngFor="let post of blogposts; let i=index;" class="text-left">
 			<div *ngIf="i > 0 && i<4">
 				<div class="border-bottom pb-2 mb-2">
-					<h5><a routerLink="/post/{{post.titleLink}}" style="text-decoration: none; color: black;">
-						<strong>{{post.title | slice:0:80 }}</strong>
+					<h5><a routerLink="/post/{{post.titleLink}}" style="text-decoration:none; color: black; ">
+						<strong class="to-click" >{{post.title | slice:0:80 }}</strong>
 					</a></h5>
 
 					<p *ngIf="post.description" class="description-text">{{post.description}}</p>
