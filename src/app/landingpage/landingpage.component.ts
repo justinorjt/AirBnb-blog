@@ -49,9 +49,8 @@ export class LandingpageComponent implements OnInit {
 		return this.bps.getAllBlogPost()
 		.subscribe((data: string) => {
 			// for
-			const objectdata = JSON.parse(data);
-			console.log(objectdata);
-			this.blogposts = objectdata;
+			console.log(data);
+			this.blogposts = data;
 		});
 	}
 

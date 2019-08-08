@@ -6,6 +6,6 @@ export interface User {
     lastname?: string;
     phone?: string;
     uid?: string;
-    createdAt?: string;
+    dateJoined?: string;
     bio?:string;
 }

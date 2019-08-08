@@ -31,9 +31,9 @@ export class ViewAllPostsComponent implements OnInit {
 
   public getAllPost = () => {
     this.bps.getAllBlogPost()
-    .subscribe((res: string) => { 
-    	const objectData = JSON.parse(res);
-    	this.dataSource = new MatTableDataSource(objectData);
+    .subscribe((res) => { 
+    	// const objectData = JSON.parse(res);
+    	this.dataSource = new MatTableDataSource(res);
     	this.dataSource.sort = this.sort;
     });
   }

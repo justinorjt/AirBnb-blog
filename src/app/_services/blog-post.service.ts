@@ -12,8 +12,8 @@ export class BlogPostService {
 	// private _options = { headers: new HttpHeaders({ 'Content-Type': 'application/json' }) };
 	articles= [];
 	httpHeaders = new HttpHeaders ({
-			'Content-Type': 'application/json',
-		});
+		'Content-Type': 'application/json',
+	});
 
 	constructor(
 		private http: HttpClient,
@@ -24,7 +24,8 @@ export class BlogPostService {
 		const url = `${this.base_URL}/blogpost/`;
 		return this.http.post<any>(url, blogpost, {headers: this.httpHeaders})
 		.pipe(map((data: any) => {
-			return data;
+			const objectData = JSON.parse(data);
+			return objectData;
 		}));
 
 
@@ -35,23 +36,25 @@ export class BlogPostService {
 		const url = `${this.base_URL}/blogpostlist`;
 		return this.http.get<any>(url, {headers: this.httpHeaders} )
 		.pipe(map((data) => {
-			return data;
+			const objectData = JSON.parse(data);
+			return objectData;
 		}));
 	}
 
 	getBlogPost(titleLink): Observable<any>{
-	
+
 		const url = `${this.base_URL}/blogpost/?titleLink=${titleLink}`;
 		return this.http.get<any>(url, {headers: this.httpHeaders});
 	}
 
 
 	updateBlogPost(titleLink: string, blogpost): Observable<any>{
-	
+
 		const url = `${this.base_URL}/blogpost/?titleLink=${titleLink}`;
 		return this.http.put<any>(url,blogpost, {headers: this.httpHeaders})
 		.pipe(map((data: any) =>{
-			return data;
+			const objectData = JSON.parse(data);
+			return objectData;		
 		}));
 	}
 
@@ -60,7 +63,8 @@ export class BlogPostService {
 		const url = `${this.base_URL}/blogpost/?titleLink=${titleLink}`;
 		return this.http.delete<any>(url, {headers: this.httpHeaders})
 		.pipe(map((data: any) => {
-			return data;
+			const objectData = JSON.parse(data);
+			return objectData;		
 		}));
 
 	}

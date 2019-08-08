@@ -10,7 +10,11 @@ import { User } from 'src/app/_models/user.model'
 export class AuthService {
 	
 	currentUser: any;
-	baseURL = 'http://localhost:5000/api';
+	base_URL = 'http://localhost:5000/api';
+
+	httpHeaders = new HttpHeaders ({
+		'Content-Type': 'application/json',
+	});
 
 	private _options = { headers: new HttpHeaders({ 'Content-Type': 'application/json' }) };
 
@@ -33,6 +37,20 @@ export class AuthService {
 
 	public signUp(user: string){
 		console.log('we here')
+	}
+
+	public getUser(){
+
+	}
+
+	public getAllUsers(){
+
+		const url = `${this.base_URL}/allusers`;
+		return this.http.get<any>(url, {headers: this.httpHeaders} )
+		.pipe(map((data) => {
+			const objectData = JSON.parse(data)
+			return objectData;
+		}));
 	}
 
 }
