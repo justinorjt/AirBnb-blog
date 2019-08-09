@@ -53,8 +53,13 @@ export class BlogPostFormComponent implements OnInit {
 
     this.bps.createBlogPost(bp).subscribe((data) => {
       console.log(data); 
-      window.alert("You're post has been submitted");
-      this.router.navigate(['/home']);
+      if (data.message) {
+        window.alert(data.message);
+      } else{
+        window.alert("You're post has been submitted");
+        this.router.navigate(['/home']);
+      }
+      
 
     },
     (err) => {console.log(err);

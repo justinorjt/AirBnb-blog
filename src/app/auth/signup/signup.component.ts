@@ -11,6 +11,8 @@ import { AuthService } from 'src/app/_services/auth.service'
 })
 export class SignupComponent implements OnInit {
 
+	invited:boolean = false;
+
 	constructor(
 		public router: Router,
 		public auth: AuthService,
@@ -23,22 +25,36 @@ export class SignupComponent implements OnInit {
 		event.preventDefault();
 	}
 
-	onSubmit(form:NgForm){
-		let creds = form.value;
+	getDate(){
+		let today = new Date();
+		const dd = String(today.getDate()).padStart(2, '0');
+		const mm = String(today.getMonth() + 1).padStart(2, '0'); 
+		const yyyy = today.getFullYear();
 
+		const thisDay = mm + '/' + dd + '/' + yyyy;
+		return thisDay;
+	}
+
+	onSubmit(form:NgForm){
+		
 		let newUser: User ={
+			firstname: form.value.firstname,
+			lastname: form.value.lastname,
+			phone: form.value.phone,
+			bio: form.value.bio,
 			email: form.value.email,
 			password: form.value.password,
-			role:'member',
-			};
+			role:'Member',
+			dateJoined: this.getDate(),
+		};
 		console.log(newUser);
-		// this.auth.signUp(newUser).subscribe(data => {
-		// 	console.log(data);
-		// },
-		// error =>{
-		// 	if (error.status === 500) {
-		// 		console.log('wtf man')
-		// 	}
-		// });
+		this.auth.signUp(newUser).subscribe(data => {
+			console.log(data);
+		},
+		error =>{
+			if (error.status === 500) {
+				console.log('wtf man')
+			}
+		});
 	}
 }

@@ -5,7 +5,8 @@ export interface User {
     firstname?: string;
     lastname?: string;
     phone?: string;
-    uid?: string;
+    user_id?: string;
     dateJoined?: string;
     bio?:string;
+    profilePic?:any;
 }

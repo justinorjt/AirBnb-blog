@@ -1,4 +1,4 @@
-/* You can add global styles to this file, and also import other style files */
+ /*You can add global styles to this file, and also import other style files */
 @import "~bootstrap/dist/css/bootstrap.css";
 @import "~font-awesome/css/font-awesome.css";
 @import '@angular/material/prebuilt-themes/deeppurple-amber.css';
@@ -77,6 +77,28 @@ img{
 	font-size: 36px;
 	line-height: 1;
 	letter-spacing: -3px;
+}
+
+/*SCROLL BAR*/
+/* width */
+::-webkit-scrollbar {
+  width: 2px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f1f1f1; 
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #888; 
+  background: var(--light-red);
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555; 
 }
 
 

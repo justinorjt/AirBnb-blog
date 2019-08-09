@@ -14,6 +14,7 @@ export class AuthService {
 
 	httpHeaders = new HttpHeaders ({
 		'Content-Type': 'application/json',
+		// 'Origin': 'http://localhost:1337/'
 	});
 
 	private _options = { headers: new HttpHeaders({ 'Content-Type': 'application/json' }) };
@@ -35,8 +36,16 @@ export class AuthService {
 		localStorage.removeItem('Access_Token');
 	}
 
-	public signUp(user: string){
-		console.log('we here')
+	public signUp(user: User){
+
+		const url = `${this.base_URL}/user`;
+		return this.http.post<any>(url, user, {headers: this.httpHeaders})
+		.pipe(map((data: string) => {
+			const objectData = JSON.parse(data);
+			return objectData;
+		}));
+
+		console.log('we here');
 	}
 
 	public getUser(){
