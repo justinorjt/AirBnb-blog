@@ -3,9 +3,9 @@
 	<ul *ngIf="router.url.includes('/admin')" class="list-group list-group-flush sidenav p-1">
 		<div class="profile-pic p-3 mx-auto w-100" style="background-color: var(--light-green);">
 
-			<img *ngIf="!user?.profilePic; else userPic" src="assets/images/default-user.jpeg" class="rounded-circle mx-auto d-flex align-self-center" height="140">
+			<img *ngIf="!author?.profilePic; else userPic" src="assets/images/default-user.jpeg" class="rounded-circle mx-auto d-flex align-self-center" height="140">
 
-			<img *ngIf="user?.profilePic" src="{{user.profilePic}}" class="rounded-circle mx-auto d-flex align-self-center" height="140">
+			<img *ngIf="author?.profilePic" src="{{author.profilePic}}" class="rounded-circle mx-auto d-flex align-self-center" height="140">
 
 		</div>
 

@@ -1,0 +1,9 @@
+.floating{
+	width: 200px;
+	position: fixed;
+	left: 10px;
+	top: 50%;
+	transform: translateY(-50%);
+	margin-right: 10px;
+	overflow-y: scroll;
+}

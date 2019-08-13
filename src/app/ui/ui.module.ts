@@ -5,13 +5,14 @@ import { FooterComponent } from './footer/footer.component';
 import { LayoutComponent } from './layout/layout.component';
 import { RouterModule } from '@angular/router';
 import { AuthenticatedNavComponent } from './authenticated-nav/authenticated-nav.component';
+import { ProfileNavComponent } from './profile-nav/profile-nav.component';
 
 @NgModule({
   declarations: [
   HeaderComponent, 
   FooterComponent, 
   LayoutComponent, 
-  AuthenticatedNavComponent,
+  AuthenticatedNavComponent, ProfileNavComponent,
   ],
   exports:[
   HeaderComponent, 

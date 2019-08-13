@@ -11,6 +11,7 @@ import { AuthGuard } from './auth/auth.guard';
 import {AuthModule} from './auth/auth.module';
 import {AdminModule} from './admin/admin.module';
 import {EditorModule} from './editor/editor.module';
+import {ViewProfileModule} from './view-profile/view-profile.module'
 
 const routes: Routes = [
 { path: 'home', component: LandingpageComponent },
@@ -20,6 +21,7 @@ const routes: Routes = [
  {path: 'auth', loadChildren: () => import('./auth/auth.module').then(auth => auth.AuthModule)},
  {path: 'admin', loadChildren: () => import('./admin/admin.module').then(admin => admin.AdminModule)},
  {path: 'editor', loadChildren: () => import('./editor/editor.module').then(editor => editor.EditorModule)},
+ {path: 'athor', loadChildren: () => import('./view-profile/view-profile.module').then(profile => profile.ViewProfileModule)},
 
 
 { path: '', redirectTo: '/home', pathMatch: 'full' },

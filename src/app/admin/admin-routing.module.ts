@@ -1,12 +1,12 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+
 import { ViewAllPostsComponent } from '../shared/view-all-posts/view-all-posts.component';
-import { ProfileComponent } from '../shared/profile/profile.component';
+import { ProfileFormComponent } from '../shared/profile-form/profile-form.component';
 import { ViewCommentsComponent } from '../shared/view-comments/view-comments.component';
 import { ViewUsersComponent } from '../shared/view-users/view-users.component';
 import { AdminComponent } from './admin.component';
-// import { AuthenticatedNavComponent } from '../ui/authenticated-nav/authenticated-nav.component';
-import {BlogPostFormComponent} from '../shared/blog-post-form/blog-post-form.component';
+import { BlogPostFormComponent } from '../shared/blog-post-form/blog-post-form.component';
 
 const routes: Routes = [
 { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
@@ -16,16 +16,10 @@ children: [
 { path: 'posts', component: ViewAllPostsComponent },
 { path: 'comments', component: ViewCommentsComponent },
 { path: 'users', component: ViewUsersComponent },
-{ path: 'profile', component: ProfileComponent },
+{ path: 'profile', component: ProfileFormComponent },
 { path: 'blog-form', component: BlogPostFormComponent },
 ]
 }
-// ,
-// { path: 'posts', component: ViewAllPostsComponent },
-// { path: 'comments', component: ViewCommentsComponent },
-// { path: 'users', component: ViewUsersComponent },
-// { path: 'profile', component: ProfileComponent },
-
 ];
 
 @NgModule({

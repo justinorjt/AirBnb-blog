@@ -24,7 +24,7 @@
 		<div class="extra col-md-6">
 			<div class="form-group">
 				<label>Role</label>
-				<input class="form-control" ngModel="{{editUser?.role}}" name="role" type="text" placeholder="" #role>
+				<input class="form-control" ngModel="{{editUser?.role}}" name="role" type="text" placeholder="" #role readonly="">
 			</div>	
 			<div class="form-group">
 				<label>Date Joined</label>
@@ -39,8 +39,8 @@
 
 	<div class="bio form-group">
 		<div class="section-header mb-2">Bio</div>
-		<textarea class="form-control" ngModel="{{editUser?.bio}}" name="bio" #bio></textarea>
-
+		<label>Content</label>
+		<quill-editor [styles]="editorStyle" [modules]="config" ngModel="{{editUser?.bio}}" name="bio" #bio="ngModel"></quill-editor>
 	</div>
 
 	<button class="btn green-button mx-auto m-2 col-md-3">Save Changes</button>
