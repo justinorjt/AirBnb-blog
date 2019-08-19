@@ -46,10 +46,10 @@
 		</article>
 	</section>
 	<section class="main col-md-5">
-		<article class="ms text-center">
+		<p class="text-left section-header">Recent Vidoes</p>
+		<article *ngFor="let link of embedvids; let i=index" class="ms text-center">
 			<div class="video">
-				<p class="text-left section-header">Recent Vidoes</p>
-				<iframe width="100%" height="240px" src="https://www.youtube.com/embed/_xRoEXcVDow" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+				<iframe [src]="link" width="100%" height="240px" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 			</div>
 		</article>
 	</section>
@@ -76,41 +76,15 @@
 
 <!-- KIT SECTION -->
 
-<section class="Kit-slider mt-5 mx-auto p-4" style="background-color: var(--light-green);">
+<section class="Kit-slider mt-5 mx-auto p-4" style="background-color: var(--light-green); padding-bottom: 60px !important;">
 	<div class="slider-container bg-white border mx-auto col-12" style="max-width: 1000px; position: relative;">
-		<h3 class="section-header" style="position: absolute; top: -65px;">Checkout Our Custom Collections</h3>
+		<h3 class="section-header pos_abs" style="top: -65px;">Checkout Our Custom Collections</h3>
+		<button routerLink="/kit-collections" class="btn red-button pos_abs" style="bottom: -50px; right: 0;">See More...</button>
 		<div class="slider-track d-flex" style="overflow-x: scroll;">
 
-			<!-- <div *ngFor="let collection of collections">				
-				<iframe src="collection.link" class="kitbox py-3 col-6" scrolling="no"></iframe>
-			</div> -->
-			
-			<iframe src="https://kit.com/embed?url=https://kit.com/rakidzich/heavy-duty-airbnb-gear" class="kitbox py-3 col-6" scrolling="no"> Hello?</iframe>
-
-		<!-- 	<iframe src="https://kit.com/embed?url=https://kit.com/rakidzich/airbnb-photography-smartphone-kit" class="kitbox py-3 col-6" scrolling="no"></iframe>
-
-			<iframe src="https://kit.com/embed?url=https://kit.com/rakidzich/room-design-a-modern-navy-with-a-splash-of-yellow" class="kitbox py-3 col-6" scrolling="no"></iframe>
-			<iframe src="https://kit.com/embed?url=https://kit.com/rakidzich/airbnb-operations-essentials" class="kitbox py-3 col-6" scrolling="no"></iframe>
-
-
-			<iframe src="https://kit.com/embed?url=https://kit.com/rakidzich/luxury-airbnb-upgrade-package" class="kitbox py-3 col-6" scrolling="no"></iframe>
-
-			<iframe src="https://kit.com/embed?url=https://kit.com/rakidzich/my-vlog-gear" class="kitbox py-3 col-6" scrolling="no"></iframe>
-
-
-			<iframe src="https://kit.com/embed?url=https%3A%2F%2Fkit.com%2Frakidzich%2Fmy-most-recent-bedroom-checklist" class="kitbox py-3 col-6" scrolling="no"></iframe>
-
-			<iframe src="https://kit.com/embed?url=https%3A%2F%2Fkit.com%2Frakidzich%2Fmy-newest-bathroom-checklist" class="kitbox py-3 col-6" scrolling="no"></iframe>
-			
-			<iframe src="https://kit.com/embed?url=https%3A%2F%2Fkit.com%2Frakidzich%2Fmy-newest-kitchen-and-cleaning-checklist" class="kitbox py-3 col-6" scrolling="no"></iframe>
-			
-			<iframe src="https://kit.com/embed?url=https%3A%2F%2Fkit.com%2Frakidzich%2Fmy-newest-living-room-checklist" class="kitbox py-3 col-6" scrolling="no"></iframe> -->
-
-
-		</div>		
-	</div>
-
-	<section id="kit">
-	</section>
-	
+			<div *ngFor="let link of embedkits; let i = index" class="col-6">				
+				<iframe [src]="link" class="kitbox my-3 py-2" scrolling="no"></iframe>
+			</div>
+		</div>	
+	</div>	
 </section>

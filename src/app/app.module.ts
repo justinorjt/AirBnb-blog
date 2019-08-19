@@ -16,13 +16,15 @@ import { FormsModule } from '@angular/forms';
 import { LoginComponent } from './auth/login/login.component';
 import { SignupComponent } from './auth/signup/signup.component';
 import { BlogPostViewComponent } from './blog-post-view/blog-post-view.component';
+import { ViewAllKitsComponent } from './view-all-kits/view-all-kits.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LandingpageComponent,
     PageNotFoundComponent,
-    BlogPostViewComponent
+    BlogPostViewComponent,
+    ViewAllKitsComponent
   ],
   imports: [
     BrowserModule,

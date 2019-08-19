@@ -34,7 +34,7 @@ img{
 	--light-blue:#cce5ff;
 }
 
-/*style for buttons*/
+/*BUTTONS*/
 .grey-button{
 	background-color: var(--dark-gray);
 	color: white;
@@ -64,6 +64,15 @@ img{
 	background-color: var(--auto-green);
 }
 
+.red-button{
+	background-color: var(--light-red);
+	color: var(--dark-red);
+	border-color: var(--dark-red);
+}
+
+.red-button:hover{
+	background-color: var(--auto-red);
+}
 
 
 .btn{
@@ -71,13 +80,7 @@ img{
 	padding-bottom: .2em;
 }
 
-.section-header{
-	color: var(--dark-red);
-	font-weight: bold;
-	font-size: 36px;
-	line-height: 1;
-	letter-spacing: -3px;
-}
+
 
 /*SCROLL BAR*/
 /* width */
@@ -103,5 +106,11 @@ img{
 
 
 /*Font variables*/
-
+.section-header{
+	color: var(--dark-red);
+	font-weight: bold;
+	font-size: 36px;
+	line-height: 1;
+	letter-spacing: -3px;
+}
 /*Box shadow styles*/

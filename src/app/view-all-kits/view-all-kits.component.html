@@ -1,0 +1,22 @@
+<!-- <section class="Kit-slider mt-5 mx-auto p-4" style="background-color: var(--light-green); padding-bottom: 60px !important;">
+	<div class="slider-container bg-white border mx-auto col-12" style="max-width: 1000px; position: relative;">
+		<h3 class="section-header pos_abs" style="top: -65px;">Checkout Our Custom Collections</h3>
+		<button class="btn red-button pos_abs" style="bottom: -50px; right: 0;">See More...</button>
+		<div class="slider-track d-flex" style="overflow-x: scroll;">
+
+			<div *ngFor="let link of embedkits; let i = index" class="col-6">				
+				<iframe [src]="link" class="kitbox my-3 py-2" scrolling="no"></iframe>
+			</div>
+		</div>		
+	</section> -->
+
+<div class="container-fluid" style="background-color: var(--light-green);">
+	
+	<div class="col-md-12 d-flex flex-wrap" style="position: relative; padding-top: 50px;">
+		<h3 class="section-header" style="position: absolute; top: 20px; left: 20px;">All of Our Collections</h3>
+
+		<div *ngFor="let link of embedkits; let i = index" class="col-md-6">				
+			<iframe [src]="link" class="kitbox my-3 py-2" scrolling="no"></iframe>
+		</div>
+	</div>
+</div>
