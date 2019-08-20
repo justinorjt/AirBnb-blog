@@ -53,7 +53,7 @@ export class LandingpageComponent implements OnInit {
 
 	fetchArticles(){
 		return this.gas.getArticles()
-		.subscribe((data) => {
+		.subscribe((data: string) => {
 			this.bnbArticles = data;
 		});
 	}
@@ -64,7 +64,7 @@ export class LandingpageComponent implements OnInit {
 			this.rawkits = data;
 
 			for  ( let item of this.rawkits){
-				const embed = "https://kit.com/embed?url=" + item;
+				const embed = "https://kit.com/embed?url=" + item.link;
 				const clean = this.sanitizer.bypassSecurityTrustResourceUrl(embed);
 				this.embedkits.push(clean);
 			}
@@ -76,9 +76,9 @@ export class LandingpageComponent implements OnInit {
 		return this.yts.getVideos()
 		.subscribe((data) => {
 			this.rawvids = data;
-
+			
 			for  ( let item of this.rawvids){
-				const embed = "https://www.youtube.com/embed/" + item;
+				const embed = "https://www.youtube.com/embed/" + item.video;
 				const clean = this.sanitizer.bypassSecurityTrustResourceUrl(embed);
 				this.embedvids.push(clean);
 			}
@@ -89,7 +89,7 @@ export class LandingpageComponent implements OnInit {
 
 	displayBlogPosts(){
 		return this.bps.getAllBlogPost()
-		.subscribe((data: string) => {
+		.subscribe((data) => {
 			console.log(data);
 			this.blogposts = data;
 		});

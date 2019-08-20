@@ -67,11 +67,13 @@ img{
 .red-button{
 	background-color: var(--light-red);
 	color: var(--dark-red);
+	/*color: white;*/
 	border-color: var(--dark-red);
 }
 
 .red-button:hover{
-	background-color: var(--auto-red);
+	background-color: var(--dark-red);
+	color: white;
 }
 
 
@@ -83,9 +85,10 @@ img{
 
 
 /*SCROLL BAR*/
-/* width */
+/* width and height*/
 ::-webkit-scrollbar {
-  width: 2px;
+  width: 3px;
+  height: 3px;
 }
 
 /* Track */
@@ -101,7 +104,7 @@ img{
 
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
-  background: #555; 
+  background: var(--dark-red); 
 }
 
 
