@@ -3,6 +3,8 @@ import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { QuillModule } from 'ngx-quill';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations'
+import { MomentModule } from 'ngx-moment';
+
 
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
@@ -32,6 +34,7 @@ import { ViewAllKitsComponent } from './view-all-kits/view-all-kits.component';
     UiModule,
     FormsModule,
     BrowserAnimationsModule,
+    MomentModule,
     QuillModule.forRoot(),
     AppRoutingModule, //<---must be the last in the list
   ],
