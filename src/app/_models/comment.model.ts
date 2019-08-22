@@ -4,4 +4,5 @@ export interface Comment {
    content:string,
    user:User,
    time_posted:string,
+   post_id:any,
 }

@@ -23,6 +23,8 @@ import { CommentComponent } from './comment/comment.component';
   FooterComponent, 
   LayoutComponent,
   AuthenticatedNavComponent,
+  CommentSectionComponent,
+  CommentComponent,
   ],
   imports: [
     CommonModule,

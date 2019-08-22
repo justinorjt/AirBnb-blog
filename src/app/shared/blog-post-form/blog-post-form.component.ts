@@ -1,5 +1,5 @@
 import { Component, ViewEncapsulation, OnInit, Input } from '@angular/core';
-import { BlogPost } from 'src/app/_models/blogpost.model';
+import { Blogpost } from 'src/app/_models/blogpost.model';
 import { FormsModule, NgForm } from '@angular/forms';
 import { BlogPostService } from 'src/app/_services/blog-post.service';
 import { Router } from '@angular/router';

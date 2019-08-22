@@ -1,15 +1,17 @@
 <div class="comment_container d_flex">
 	<div class="comment_from">
-		<div class="user_name">Johsnon, Canoe</div>
+		<div class="user_name">{{comment.user}}</div>
 		<div class="user_pic">
-			<img *ngIf="user?.profilePic" class="rounded-circle" width="80px" src="{{user.profilePic}}">
+			<img *ngIf="comment.user?.profilePic" class="rounded-circle" width="60px" src="{{comment.user.profilePic}}">
+			<img *ngIf="!comment.user?.profilePic" class="rounded-circle" width="60px" src="assets/images/default-user.jpeg">
 		</div>
 	</div>
 	
 	<div class="comment_content">
 		<textarea class="form-control comment_text" ngModel="{{editComment?.content}}" name="content" type="text" placeholder="Enter your Comment here..." (editSaved)="onContentSaved($event)"></textarea>
 	</div>
-	<div class="comment_time">
-		
+	<div class="comment_time"></div>
+	<div class="comment_options">
+		<button class="btn btn-link">Edit</button>
 	</div>
 </div>

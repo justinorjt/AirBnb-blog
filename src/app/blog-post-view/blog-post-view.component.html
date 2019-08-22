@@ -9,12 +9,14 @@
 		<br>
 		<br>
 		<br>
-		<p style="font-size: large;" [innerHTML]="post.content"></p>
-		<br>
+		<p style="font-size: large;" class="mb-0" [innerHTML]="post.content"></p>
 		<small>
 			<p *ngIf="post.hashtags">Hashtags: {{post.hashtags}}</p>
 			<p>Categories: {{post?.category}}</p>
 		</small>
+	</div>
+	<div class="col-md-8 mx-auto my-3">
+		<app-comment-section></app-comment-section>
 	</div>
 </div>
 

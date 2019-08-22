@@ -2,7 +2,7 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatTableModule, MatTableDataSource} from '@angular/material/table';
 import {MatSort} from '@angular/material/sort';
 import { BlogPostService } from '../../_services/blog-post.service';
-import { blogpost} from '../../_models/blogpost.model';
+import { Blogpost} from '../../_models/blogpost.model';
 import { BlogPostFormComponent } from '../blog-post-form/blog-post-form.component';
 
 @Component({

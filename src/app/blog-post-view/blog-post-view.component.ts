@@ -2,7 +2,6 @@ import { Component, OnInit, Input } from '@angular/core';
 import { BlogPostService } from 'src/app/_services/blog-post.service';
 import { ActivatedRoute } from '@angular/router';
 
-
 @Component({
 	selector: 'app-blog-post-view',
 	templateUrl: './blog-post-view.component.html',
@@ -24,9 +23,10 @@ export class BlogPostViewComponent implements OnInit {
 
 	getPost(): void {
 		const titleLink = this.route.snapshot.paramMap.get('titleLink');
-		console.log(titleLink);
+		// console.log(titleLink);
 		this.bps.getBlogPost(titleLink)
 		.subscribe(post => { this.post = JSON.parse(post);
+			console.log(this.post._id);
 		});
 	}
 

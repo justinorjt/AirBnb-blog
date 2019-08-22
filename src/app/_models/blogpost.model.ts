@@ -1,19 +1,19 @@
-export class BlogPost{
-	constructor(
-		public header?:string,
-		public description?:string,
-		public author?:string,
-		public image?:any[],
-		public content?:string,
-		public comments?:Comment[],
-		public publishDate?:string,
-		public views?:number,
-		public hashtags?:string[],
-		public category?:string,
-		){}
-}
+// export class BlogPost{
+// 	constructor(
+// 		public header?:string,
+// 		public description?:string,
+// 		public author?:string,
+// 		public image?:any[],
+// 		public content?:string,
+// 		public comments?:Comment[],
+// 		public publishDate?:string,
+// 		public views?:number,
+// 		public hashtags?:string[],
+// 		public category?:string,
+// 		){}
+// }
 
-export interface blogpost{
+export interface Blogpost{
 	title: string;
 	titleLink:string;
 	author:string;

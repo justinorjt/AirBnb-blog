@@ -28,11 +28,11 @@
 <div class="track d-flex mb-5">
 
 	<section class="left col-md-3">
-		<p class="section-header">Latest Articles</p>
+		<p class="section-header">Latest News</p>
 		<article class="ts text-left">
 			<div class="d-flex flex-column">
 				<a *ngFor="let article of bnbArticles; let i=index">
-					<div *ngIf="i<3"  class="border-bottom pb-2 mb-2">
+					<div *ngIf="i<6"  class="border-bottom pb-2 mb-2">
 						<h5><a href="{{article.link | slice:7:800}}" style="text-decoration: none; color: black;">
 							<strong class="to-click">
 								{{article.title | slice:0:30}}
@@ -56,7 +56,7 @@
 	<section class="right col-md-4">
 		<p class="section-header">Trending Stories</p>
 		<article *ngFor="let post of blogposts; let i=index;" class="text-left">
-			<div *ngIf="i > 0 && i<4">
+			<div *ngIf="i > 0 && i<6">
 				<div class="border-bottom pb-2 mb-2">
 					<h5><a routerLink="/post/{{post.titleLink}}" style="text-decoration:none; color: black; ">
 						<strong class="to-click" >{{post.title | slice:0:80 }}</strong>
