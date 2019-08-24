@@ -1,36 +1,53 @@
 import { Component,Input, Output, ViewEncapsulation, EventEmitter, OnInit } from '@angular/core';
 import { FormsModule, NgForm } from '@angular/forms';
+import { AuthService } from 'src/app/_services/auth.service';
 import {Pipe} from '@angular/core';
 import {Moment} from 'moment';
 import { Blogpost } from '../../_models/blogpost.model';
 import { User } from '../../_models/user.model';
+import { Comment } from '../../_models/comment.model';
 
 @Component({
-  selector: 'app-comment',
-  templateUrl: './comment.component.html',
-  styleUrls: ['./comment.component.css']
+	selector: 'app-comment',
+	templateUrl: './comment.component.html',
+	styleUrls: ['./comment.component.css']
 })
 export class CommentComponent implements OnInit {
 
 	// The time of the comment as a timestamp
-  @Input() time;
-  // The user object of the user who created the comment
-  @Input() user: User;
-  // The comment content
-  @Input() content;
-  @Input() editComment;
-  @Input() post:Blogpost;
+	@Input() time_posted;
+	// The user object of the user who created the comment
+	// @Input() user:User;
+	@Input() user_id;
+	// The comment content
+	@Input() content;
+	@Input() editComment;
+	// @Input() post_id;
 
-  // If a comment was edited this event will be emitted
-  @Output() commentEdited = new EventEmitter();
+	// If a comment was edited this event will be emitted
+	@Output() commentEdited = new EventEmitter();
 
-  constructor() { }
+	user:User;
 
-  ngOnInit() {
-  }
+	constructor(
+		private aus: AuthService,
+		) { }
 
-  onContentSaved(content) {
-    this.commentEdited.next(content);
-  }
+	ngOnInit() {
+		this.getUserInfo(this.user_id)
+	}
+
+	onContentSaved(content) {
+		this.commentEdited.next(content);
+	}
+
+	getUserInfo(user_id){
+		this.aus.getUser(user_id)
+		.subscribe(user => { 
+			this.user = user.user;
+			console.log(this.user);
+			console.log(user_id);
+		});
+	} 
 
 }

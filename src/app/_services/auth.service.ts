@@ -48,10 +48,6 @@ export class AuthService {
 		console.log('we here');
 	}
 
-	public getUser(){
-
-	}
-
 	public getAllUsers(){
 
 		const url = `${this.base_URL}/allusers`;
@@ -60,6 +56,27 @@ export class AuthService {
 			const objectData = JSON.parse(data)
 			return objectData;
 		}));
+	}
+
+	public getUser(user_id){
+		const url = `${this.base_URL}/user/?user_id=${user_id}`;
+		return this.http.get<any>(url, {headers: this.httpHeaders} )
+		.pipe(map((data) => {
+			const objectData = JSON.parse(data)
+			return objectData;
+		}));
+
+	}
+
+
+	public deleteUser(user_id){
+		const url = `${this.base_URL}/users/?user_id=${user_id}`;
+		return this.http.delete<any>(url, {headers: this.httpHeaders} )
+		.pipe(map((data) => {
+			const objectData = JSON.parse(data)
+			return objectData;
+		}));
+
 	}
 
 }

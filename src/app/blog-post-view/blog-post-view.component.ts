@@ -27,6 +27,7 @@ export class BlogPostViewComponent implements OnInit {
 		this.bps.getBlogPost(titleLink)
 		.subscribe(post => { this.post = JSON.parse(post);
 			console.log(this.post._id);
+			localStorage.setItem("post_id", this.post._id);
 		});
 	}
 

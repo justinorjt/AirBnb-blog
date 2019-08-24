@@ -1,4 +1,4 @@
-<div class="comments__title section-header mb-3">Add new comment</div>
+<div class="comments__title section-header mb-3">Comments</div>
 <div class="comments__add-comment-section d-flex">
   <div class="comments__add-comment-box col-12">
         <textarea class="form-control comment_text" name="content" type="text" placeholder="Enter your Comment here..." (editSaved)="onContentSaved($event)"></textarea>
@@ -6,13 +6,13 @@
   <button (click)="addNewComment()" class="btn grey-button" >Add comment</button>
 </div>
 
-<div *ngIf="comments?.length > 0">
-  <div class="comments__title">All comments</div>
-  <ul class="comments__list">
-    <li *ngFor="let comment of comments">
+<div *ngIf="listofcomments?.length > 0">
+  <div class="comments__title" style="">All comments</div>
+  <ul class="comments__list col-12 px-0" style="list-style: none;">
+    <li *ngFor="let comment of listofcomments">
       <app-comment [content]="comment.content"
-              [time]="comment.time"
-              [user]="comment.user"
+              [time_posted]="comment.time_posted"
+              [user_id]="comment.user_id"
               (commentEdited)="onCommentEdited(comment, $event)">
       </app-comment>
     </li>
