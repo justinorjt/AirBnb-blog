@@ -2,7 +2,8 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
-import { User } from 'src/app/_models/user.model'
+import { User } from 'src/app/_models/user.model';
+import { environment} from 'src/environments/environment';
 
 @Injectable({
 	providedIn: 'root'
@@ -10,7 +11,8 @@ import { User } from 'src/app/_models/user.model'
 export class AuthService {
 	
 	currentUser: any;
-	base_URL = 'http://localhost:5000/api';
+	base_URL = environment.API_URL;
+	// base_URL = 'http://localhost:5000/api';
 
 	httpHeaders = new HttpHeaders ({
 		'Content-Type': 'application/json',

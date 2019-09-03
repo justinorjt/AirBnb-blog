@@ -12,6 +12,7 @@ import { AuthService } from 'src/app/_services/auth.service'
 export class SignupComponent implements OnInit {
 
 	invited:boolean = false;
+	editUser;
 
 	constructor(
 		public router: Router,

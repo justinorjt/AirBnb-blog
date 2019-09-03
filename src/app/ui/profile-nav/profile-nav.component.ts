@@ -2,8 +2,13 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
 class NavItem {
-  constructor(public name: String, public link: String) {}
+
+  constructor(
+  	public name: String, 
+  	public link: String) {}
 }
+
+
 
 @Component({
   selector: 'app-profile-nav',
@@ -12,7 +17,9 @@ class NavItem {
 })
 export class ProfileNavComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+  	public router: Router, 
+  	) { }
 
   ngOnInit() {
   }

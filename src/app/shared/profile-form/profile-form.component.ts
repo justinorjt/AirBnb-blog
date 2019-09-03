@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {User} from 'src/app/_models/user.model'
 
 @Component({
 	selector: 'app-profile-form',
@@ -8,6 +9,8 @@ import { Component, OnInit } from '@angular/core';
 export class ProfileFormComponent implements OnInit {
 
 	constructor() { }
+
+	editUser;
 
 
 	editorStyle = {

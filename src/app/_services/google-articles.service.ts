@@ -2,13 +2,15 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable, of, from } from 'rxjs';
 import { map } from 'rxjs/operators';
+import { environment} from 'src/environments/environment';
 
 @Injectable({
 	providedIn: 'root'
 })
 export class GoogleArticlesService {
 
-	base_URL = 'http://localhost:5000/api';
+	base_URL = environment.API_URL;
+	// base_URL = 'http://localhost:5000/api';
 
 	httpHeaders = new HttpHeaders ({
 		'Content-Type': 'application/json',

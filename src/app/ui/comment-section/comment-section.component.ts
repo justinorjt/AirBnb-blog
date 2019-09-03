@@ -46,4 +46,11 @@ export class CommentSectionComponent implements OnInit {
 		this.post_id = undefined;
 	}
 
+	addNewComment(){
+
+	}
+
+	onContentSaved(e){
+
+	}
 }
