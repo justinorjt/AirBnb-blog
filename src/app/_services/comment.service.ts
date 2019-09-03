@@ -10,7 +10,7 @@ import { environment} from 'src/environments/environment';
 })
 export class CommentService {
 
-	base_URL = environment.API_URL;
+	base_URL;
 	// base_URL = 'http://localhost:5000/api';
 	articles= [];
 	httpHeaders = new HttpHeaders ({
@@ -19,7 +19,8 @@ export class CommentService {
 
 	constructor(
 		private http: HttpClient,
-		) { }
+		) 
+	{this.base_URL = environment.API_URL;}
 
 	createComment(comment:Comment): Observable<any> {
 		

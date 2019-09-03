@@ -9,7 +9,7 @@ import { environment} from 'src/environments/environment';
 })
 export class YoutubeService {
 
-	base_URL = environment.API_URL;
+	base_URL;
 
 	// base_URL = 'http://localhost:5000/api';
 
@@ -18,7 +18,7 @@ export class YoutubeService {
 	});
 	constructor(
 		private http: HttpClient,
-		) { }
+		) {  this.base_URL = environment.API_URL }
 
 	getVideos() {
 		const url = `${this.base_URL}/youtube`;

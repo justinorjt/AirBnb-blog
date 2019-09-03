@@ -11,7 +11,7 @@ import { environment} from 'src/environments/environment';
 export class AuthService {
 	
 	currentUser: any;
-	base_URL = environment.API_URL;
+	base_URL;
 	// base_URL = 'http://localhost:5000/api';
 
 	httpHeaders = new HttpHeaders ({
@@ -23,7 +23,8 @@ export class AuthService {
 
 	constructor(
 		private http: HttpClient,
-		) {	}
+		) 
+	{	this.base_URL = environment.API_URL;	}
 
 	public logIn(credentials: any){
 		// localStorage.setItem('Access_Token', "access_token");

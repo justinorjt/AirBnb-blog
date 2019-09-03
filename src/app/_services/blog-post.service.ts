@@ -10,7 +10,7 @@ import { environment} from 'src/environments/environment';
 })
 export class BlogPostService {
 
-	base_URL = environment.API_URL;
+	base_URL;
 	// base_URL = 'http://localhost:5000/api';
 	// private _options = { headers: new HttpHeaders({ 'Content-Type': 'application/json' }) };
 	articles= [];
@@ -20,7 +20,8 @@ export class BlogPostService {
 
 	constructor(
 		private http: HttpClient,
-		) { }
+		) 
+	{this.base_URL = environment.API_URL;}
 
 	createBlogPost(blogpost:any): Observable<any> {
 		
