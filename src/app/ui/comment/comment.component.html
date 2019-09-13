@@ -1,20 +1,23 @@
-<div class="comment_container col-12 d-flex">
-	<div class="comment_from">
+<div class="comment_container col-12 d-flex justify-content-between border-bottom my-2 px-0">
+	<div class="comment_from col-2 text-center">
 		<div class="user_pic">
 			<img *ngIf="user?.profilePic" class="rounded-circle" width="60px" src="{{user.profilePic}}">
 			<img *ngIf="!user?.profilePic" class="rounded-circle" width="60px" src="assets/images/default-user.jpeg">
 		</div>
-		<div class="user_name">{{user?.email}}</div>
-		<small class="comment_time">{{time_posted}}</small>
+		
 
 	</div>
 	
-	<div class="comment_content col-10">
-		<p>{{content}}</p>
-		<!-- <textarea class="form-control comment_text" ngModel="{{content}}" name="content" type="text" placeholder="Enter your Comment here..." (editSaved)="onContentSaved($event)"></textarea> -->
+	<div class="comment_details col-10">
+		<div class="name_time d-flex">
+			<small class="user_name mr-3" style="color: var(--dark-blue); font-weight: bold; cursor: pointer;">{{user?.email}}</small>
+			<small class="comment_time" style="color: var(--dark-green);">{{time_posted}}</small>
+		</div>
+		<p style="margin: 0">{{content}}</p>
+		<div class="comment_options d-flex justify-content-end">
+			<button class="btn btn-link">Edit</button>
+			<button class="btn btn-link">Delete</button>
+		</div>
 	</div>
-	<div class="comment_options col-2">
-		<button class="btn btn-link">Edit</button>
-		<button class="btn btn-link">Delete</button>
-	</div>
+	
 </div>
