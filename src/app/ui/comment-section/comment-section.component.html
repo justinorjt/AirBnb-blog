@@ -1,20 +1,21 @@
-<div class="comments__title section-header mb-3">{{listofcomments.length}} Comments</div>
+<div class="comments__title section-header mb-3">{{listofcomments?.length}} Comments</div>
 <div class="comments__add-comment-section d-flex col-12">
-  <div class="comments__add-comment-box col-10">
-        <textarea class="form-control comment_text" name="content" type="text" placeholder="Enter your Comment here..." (editSaved)="onContentSaved($event)"></textarea>
-  </div>
-  <button (click)="addNewComment()" class="btn grey-button" >Add comment</button>
+  <form #newComment="ngForm" class="comments__add-comment-box col-10">
+        <textarea class="form-control comment_text" name="content" type="text" placeholder="Enter your Comment here..." ngModel></textarea>
+  </form>
+  <button (click)="addNewComment(newComment)" type="submit" class="btn grey-button" >Add comment</button>
 </div>
 
 <div *ngIf="listofcomments?.length > 0">
   <!-- <div class="comments__title section-header" style="">Comments {{listofcomments.length}}</div> -->
-  <ul class="comments__list col-12 px-0" style="list-style: none;">
-    <li *ngFor="let comment of listofcomments">
+  <ul class="comments__list col-12 px-0 my-2" style="list-style: none;">
+    <li *ngFor="let comment of listofcomments; let i=index;">
       <app-comment [content]="comment.content"
               [time_posted]="comment.time_posted"
-              [user_id]="comment.user_id"
+              [user_id]="comment.user_email"
               (commentEdited)="onCommentEdited(comment, $event)">
       </app-comment>
     </li>
+    <div class="SeeMore btn grey-button w-100" style="cursor: pointer;">See More Comments..</div>
   </ul>
 </div>

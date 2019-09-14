@@ -18,7 +18,7 @@ export class CommentSectionComponent implements OnInit {
 	// We are using an editor for adding new comments and control it 
 	// directly using a reference
 	// @ViewChild() newCommentEditor;
-	user;
+	user_email;
 	post_id;
 	listofcomments;
 
@@ -29,11 +29,12 @@ export class CommentSectionComponent implements OnInit {
 
 	ngOnInit() {
 		this.getPostID();
+		this.getUserID();
 		this.getComments();
 	}
 
 	getComments(){
-		this.cs.getAllComments()
+		this.cs.getAllBlogPostComments(this.post_id)
 		.subscribe(commentList => { 
 			this.listofcomments = (commentList);
 			console.log(this.listofcomments);
@@ -43,14 +44,24 @@ export class CommentSectionComponent implements OnInit {
 
 	getPostID(){
 		this.post_id = localStorage.getItem("post_id");
-		this.post_id = undefined;
+		// this.post_id = undefined;
 	}
 
-	addNewComment(){
-
+	getUserID(){
+		this.user_email = localStorage.getItem("user_id");
 	}
 
-	onContentSaved(e){
+	addNewComment(form){
+		
+		const comment_content = (form.value.content);
 
+		const insertcomment = {"content": comment_content, "user_email":this.user_email, "post_id":this.post_id, "time_posted":"9/14/2019"};
+
+		this.cs.createComment(insertcomment).subscribe(data =>{
+			if (data.data){
+				this.getComments();
+			}
+			console.log(data);
+		});
 	}
 }

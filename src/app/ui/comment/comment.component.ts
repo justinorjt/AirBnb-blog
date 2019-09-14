@@ -43,10 +43,10 @@ export class CommentComponent implements OnInit {
 
 	getUserInfo(user_id){
 		this.aus.getUser(user_id)
-		.subscribe(user => { 
-			this.user = user.user;
-			console.log(this.user);
-			console.log(user_id);
+		.subscribe(data => { 
+			this.user = data.user;
+			// console.log(this.user);
+			// console.log(user_id);
 		});
 	} 
 
