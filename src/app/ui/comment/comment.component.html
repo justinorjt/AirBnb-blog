@@ -1,24 +1,28 @@
-<div class="comment_container col-12 d-flex justify-content-between border-bottom my-2 px-0">
+<div class="comment_container col-12 d-flex justify-content-between border-bottom my-2 px-0" [class.editReady]="!toEdit">
 	<div class="comment_from col-2 text-center">
 		<div class="user_pic">
 			<img *ngIf="user?.profilePic" class="rounded-circle" width="60px" src="{{user.profilePic}}">
 			<img *ngIf="!user?.profilePic" class="rounded-circle" width="60px" src="assets/images/default-user.jpeg">
 		</div>
-		
-
 	</div>
-	
 	<div class="comment_details col-10">
 		<div class="name_time d-flex">
 			<small class="user_name mr-3" style="color: var(--dark-blue); font-weight: bold; cursor: pointer;">{{user?.email}}</small>
-			<small class="comment_time" style="color: var(--dark-green);">{{time_posted}}</small>
+			<small class="comment_time" style="color: var(--dark-green);">{{time_posted | amTimeAgo}}</small>
 		</div>
 		<p style="margin: 0">{{content}}</p>
 		<div class="comment_options d-flex justify-content-end">
 			<button class="btn btn-link"><small>Like</small></button>
-			<button class="btn btn-link"><small>Edit</small></button>
+			<button class="btn btn-link" (click)="editComment($event)"><small>Edit</small></button>
 			<button class="btn btn-link"><small>Delete</small></button>
 		</div>
 	</div>
 	
 </div>
+<form #editedComment="ngForm" class="comments__add-comment-box col-12 d-flex m-2"  [class.editReady]="toEdit">
+	<textarea class="form-control comment_text" style="background: beige;" name="content" type="text" ngModel={{content}} placeholder="Enter your Comment here..."></textarea>
+	<div class="mx-3 my-2 d-flex flex-column">
+		<button (click)="submitEditComment(editedComment)" type="submit" class="btn green-button" >Submit</button>
+		<button (click)="cancelEdit()" type="submit" class="btn btn-link" >Cancel</button>		
+	</div>
+</form>

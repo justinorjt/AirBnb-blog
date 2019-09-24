@@ -12,9 +12,9 @@ import { AuthService } from '../../_services/auth.service'
 })
 export class CommentSectionComponent implements OnInit {
 
-	@Input() comments:Comment[];
+	// @Input() comments:Comment[];
 	// Event when the list of comments have been updated
-	@Output() commentsUpdated = new EventEmitter();
+	// @Output() commentsUpdated = new EventEmitter();
 	// We are using an editor for adding new comments and control it 
 	// directly using a reference
 	// @ViewChild() newCommentEditor;
@@ -51,17 +51,22 @@ export class CommentSectionComponent implements OnInit {
 		this.user_email = localStorage.getItem("user_id");
 	}
 
+	onCommentEdited(){
+		this.getComments();
+	}
+
 	addNewComment(form){
 		
 		const comment_content = (form.value.content);
 
-		const insertcomment = {"content": comment_content, "user_email":this.user_email, "post_id":this.post_id, "time_posted":"9/14/2019"};
+		const insertcomment = {"content": comment_content, "user_email":this.user_email, "post_id":this.post_id, "time_posted": new Date()};
 
 		this.cs.createComment(insertcomment).subscribe(data =>{
-			if (data.data){
+			if (!data.message){
 				this.getComments();
 			}
 			console.log(data);
 		});
+		form.reset();
 	}
 }

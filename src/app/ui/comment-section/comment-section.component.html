@@ -9,11 +9,14 @@
 <div *ngIf="listofcomments?.length > 0">
   <!-- <div class="comments__title section-header" style="">Comments {{listofcomments.length}}</div> -->
   <ul class="comments__list col-12 px-0 my-2" style="list-style: none;">
-    <li *ngFor="let comment of listofcomments; let i=index;">
+    <li *ngFor="let comment of listofcomments.slice().reverse(); let i=index;">
       <app-comment [content]="comment.content"
+              [comment]="comment"
               [time_posted]="comment.time_posted"
+              [post_id]="post_id"
               [user_id]="comment.user_email"
-              (commentEdited)="onCommentEdited(comment, $event)">
+              (commentEdited)="onCommentEdited($event)">
+              <!-- (voted)="onVoted($event)" -->
       </app-comment>
     </li>
     <div class="SeeMore btn grey-button w-100" style="cursor: pointer;">See More Comments..</div>

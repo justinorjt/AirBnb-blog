@@ -24,10 +24,10 @@ export class CommentService {
 
 	createComment(comment:Comment): Observable<any> {
 		
-		const url = `${this.base_URL}/comment/`;
+		const url = `${this.base_URL}/comment`;
 		return this.http.post<any>(url, comment, {headers: this.httpHeaders})
 		.pipe(map((data: any) => {
-			const objectData = JSON.parse(data);
+			const objectData = data;
 			return objectData;
 		}));
 
@@ -39,7 +39,7 @@ export class CommentService {
 		const url = `${this.base_URL}/commentlist/`;
 		return this.http.get<any>(url, {headers: this.httpHeaders} )
 		.pipe(map((data) => {
-			const objectData = JSON.parse(data);
+			const objectData = data;
 			return objectData;
 		}));
 	}
@@ -50,7 +50,7 @@ export class CommentService {
 		const url = `${this.base_URL}/commentlist/?post_id=${post_id}`;
 		return this.http.get<any>(url, {headers: this.httpHeaders} )
 		.pipe(map((data) => {
-			const objectData = JSON.parse(data);
+			const objectData = data;
 			return objectData;
 		}));
 	}
@@ -64,10 +64,10 @@ export class CommentService {
 
 	updateComment(comment_id: string, comment): Observable<any>{
 
-		const url = `${this.base_URL}/comment/?comment_id=${comment_id}`;
+		const url = `${this.base_URL}/comment?comment_id=${comment_id}`;
 		return this.http.put<any>(url,comment, {headers: this.httpHeaders})
 		.pipe(map((data: any) =>{
-			const objectData = JSON.parse(data);
+			const objectData = data;
 			return objectData;		
 		}));
 	}
@@ -77,7 +77,7 @@ export class CommentService {
 		const url = `${this.base_URL}/comment/?comment_id=${comment_id}`;
 		return this.http.delete<any>(url, {headers: this.httpHeaders})
 		.pipe(map((data: any) => {
-			const objectData = JSON.parse(data);
+			const objectData = data;
 			return objectData;		
 		}));
 

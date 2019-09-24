@@ -44,7 +44,7 @@ export class AuthService {
 		const url = `${this.base_URL}/user`;
 		return this.http.post<any>(url, user, {headers: this.httpHeaders})
 		.pipe(map((data: string) => {
-			const objectData = JSON.parse(data);
+			const objectData = data;
 			return objectData;
 		}));
 
@@ -56,7 +56,7 @@ export class AuthService {
 		const url = `${this.base_URL}/allusers`;
 		return this.http.get<any>(url, {headers: this.httpHeaders} )
 		.pipe(map((data) => {
-			const objectData = JSON.parse(data)
+			const objectData = data
 			return objectData;
 		}));
 	}
@@ -65,7 +65,7 @@ export class AuthService {
 		const url = `${this.base_URL}/user/?user_id=${user_id}`;
 		return this.http.get<any>(url, {headers: this.httpHeaders} )
 		.pipe(map((data) => {
-			const objectData = JSON.parse(data)
+			const objectData = data
 			return objectData;
 		}));
 
@@ -76,7 +76,7 @@ export class AuthService {
 		const url = `${this.base_URL}/users/?user_id=${user_id}`;
 		return this.http.delete<any>(url, {headers: this.httpHeaders} )
 		.pipe(map((data) => {
-			const objectData = JSON.parse(data)
+			const objectData = data
 			return objectData;
 		}));
 
