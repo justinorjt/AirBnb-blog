@@ -13,3 +13,23 @@ th.mat-header-cell {
 th.mat-sort-header-sorted {
   color: black;
 }
+
+td{
+	padding-right: 8px !important;
+	padding-left: 8px !important;
+}
+
+th{
+	padding-right: 8px !important;
+	padding-left: 8px !important;
+}
+
+.editReady{
+	display: none;
+	position: absolute;
+	left: -99999px;
+}
+
+i{
+	cursor: pointer;
+}

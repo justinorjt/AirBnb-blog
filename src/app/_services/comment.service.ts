@@ -57,7 +57,7 @@ export class CommentService {
 
 	getComment(comment_id): Observable<any>{
 
-		const url = `${this.base_URL}/comment/?comment_id=${comment_id}`;
+		const url = `${this.base_URL}/comment?comment_id=${comment_id}`;
 		return this.http.get<any>(url, {headers: this.httpHeaders});
 	}
 

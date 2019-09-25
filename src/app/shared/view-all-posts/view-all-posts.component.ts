@@ -46,8 +46,7 @@ export class ViewAllPostsComponent implements OnInit {
   public redirectToUpdate = (link: string) => {
     this.postLink = link;
     this.bps.getBlogPost(this.postLink).subscribe(data =>{
-    	const object = JSON.parse(data);
-    	this.PostEdit = object;
+    	this.PostEdit = data;
     	console.log(this.PostEdit);
     })
   }
@@ -55,9 +54,8 @@ export class ViewAllPostsComponent implements OnInit {
   public redirectToDelete = (link: string) => {
     this.postLink = link;
     this.bps.deleteBlogPost(this.postLink).subscribe(data => {
-    	const object = JSON.parse(data);
-    	console.log(object);
-    	window.alert("This post " +object.title +" has been deleted");
+    	console.log(data);
+    	window.alert("This post " +data.title +" has been deleted");
     })
     
   }

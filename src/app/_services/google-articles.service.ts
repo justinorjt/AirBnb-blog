@@ -25,7 +25,7 @@ export class GoogleArticlesService {
 		const url = `${this.base_URL}/bnbnews`;
 		return this.http.get<any>(url, {headers: this.httpHeaders})
 		.pipe(map((data) => {
-			const objectData = JSON.parse(data);
+			const objectData = (data);
 			return objectData;
 		}));
 	}

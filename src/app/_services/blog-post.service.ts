@@ -28,7 +28,7 @@ export class BlogPostService {
 		const url = `${this.base_URL}/blogpost/`;
 		return this.http.post<any>(url, blogpost, {headers: this.httpHeaders})
 		.pipe(map((data: any) => {
-			const objectData = JSON.parse(data);
+			const objectData = (data);
 			return objectData;
 		}));
 
@@ -40,7 +40,7 @@ export class BlogPostService {
 		const url = `${this.base_URL}/blogpostlist`;
 		return this.http.get<any>(url, {headers: this.httpHeaders} )
 		.pipe(map((data) => {
-			const objectData = JSON.parse(data);
+			const objectData = (data);
 			return objectData;
 		}));
 	}
@@ -57,7 +57,7 @@ export class BlogPostService {
 		const url = `${this.base_URL}/blogpost/?titleLink=${titleLink}`;
 		return this.http.put<any>(url,blogpost, {headers: this.httpHeaders})
 		.pipe(map((data: any) =>{
-			const objectData = JSON.parse(data);
+			const objectData = (data);
 			return objectData;		
 		}));
 	}
@@ -67,7 +67,7 @@ export class BlogPostService {
 		const url = `${this.base_URL}/blogpost/?titleLink=${titleLink}`;
 		return this.http.delete<any>(url, {headers: this.httpHeaders})
 		.pipe(map((data: any) => {
-			const objectData = JSON.parse(data);
+			const objectData = (data);
 			return objectData;		
 		}));
 
