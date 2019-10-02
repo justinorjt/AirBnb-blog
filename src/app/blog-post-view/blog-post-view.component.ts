@@ -10,6 +10,9 @@ import { ActivatedRoute } from '@angular/router';
 export class BlogPostViewComponent implements OnInit {
 
 	post: any;
+	post_id: string;
+
+	show:boolean = false;
 
 	constructor(
 		private bps: BlogPostService,
@@ -22,13 +25,21 @@ export class BlogPostViewComponent implements OnInit {
 	}
 
 	getPost(): void {
-		const titleLink = this.route.snapshot.paramMap.get('titleLink');
+		// const titleLink = this.route.snapshot.paramMap.get('titleLink');
 		// console.log(titleLink);
-		this.bps.getBlogPost(titleLink)
+		const gotoPost = localStorage.getItem('chosenPostID')
+		this.bps.getBlogPost(gotoPost)
 		.subscribe(post => { this.post = post;
-			localStorage.setItem("post_id", this.post._id);
+			console.log("me", post._id);
+			localStorage.setItem("post_id", post._id);
 			console.log(this.post._id);
 		});
-	}
+	};
+
+	loadComments(){
+		this.post_id = localStorage.getItem("post_id")
+		this.show = !this.show;
+		console.log("the try",this.show)
+	};
 
 }

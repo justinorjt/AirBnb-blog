@@ -25,7 +25,7 @@ export class BlogPostService {
 
 	createBlogPost(blogpost:any): Observable<any> {
 		
-		const url = `${this.base_URL}/blogpost/`;
+		const url = `${this.base_URL}/blogpost`;
 		return this.http.post<any>(url, blogpost, {headers: this.httpHeaders})
 		.pipe(map((data: any) => {
 			const objectData = (data);
@@ -45,16 +45,16 @@ export class BlogPostService {
 		}));
 	}
 
-	getBlogPost(titleLink): Observable<any>{
+	getBlogPost(id): Observable<any>{
 
-		const url = `${this.base_URL}/blogpost/?titleLink=${titleLink}`;
+		const url = `${this.base_URL}/blogpost?id=${id}`;
 		return this.http.get<any>(url, {headers: this.httpHeaders});
 	}
 
 
-	updateBlogPost(titleLink: string, blogpost): Observable<any>{
+	updateBlogPost(id: string, blogpost): Observable<any>{
 
-		const url = `${this.base_URL}/blogpost/?titleLink=${titleLink}`;
+		const url = `${this.base_URL}/blogpost?id=${id}`;
 		return this.http.put<any>(url,blogpost, {headers: this.httpHeaders})
 		.pipe(map((data: any) =>{
 			const objectData = (data);
@@ -62,9 +62,9 @@ export class BlogPostService {
 		}));
 	}
 
-	deleteBlogPost(titleLink): Observable<any>{
+	deleteBlogPost(id): Observable<any>{
 
-		const url = `${this.base_URL}/blogpost/?titleLink=${titleLink}`;
+		const url = `${this.base_URL}/blogpost?id=${id}`;
 		return this.http.delete<any>(url, {headers: this.httpHeaders})
 		.pipe(map((data: any) => {
 			const objectData = (data);

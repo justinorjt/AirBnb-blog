@@ -12,7 +12,7 @@ import { AuthService } from '../../_services/auth.service'
 })
 export class CommentSectionComponent implements OnInit {
 
-	// @Input() comments:Comment[];
+	@Input() post_id_try;
 	// Event when the list of comments have been updated
 	// @Output() commentsUpdated = new EventEmitter();
 	// We are using an editor for adding new comments and control it 
@@ -28,13 +28,18 @@ export class CommentSectionComponent implements OnInit {
 		) { }
 
 	ngOnInit() {
-		this.getPostID();
-		this.getUserID();
-		this.getComments();
+		setTimeout(()=>{
+			this.getPostID();
+			this.getUserID();
+			this.getComments();
+		}, 2)
+
+		console.log(this.post_id_try)
+		
 	}
 
 	getComments(){
-		this.cs.getAllBlogPostComments(this.post_id)
+		this.cs.getAllBlogPostComments(this.post_id_try)
 		.subscribe(commentList => { 
 			this.listofcomments = (commentList);
 			console.log(this.listofcomments);

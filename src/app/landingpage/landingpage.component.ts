@@ -6,6 +6,7 @@ import { YoutubeService } from 'src/app/_services/youtube.service'
 import { KitcollectionService } from 'src/app/_services/kitcollection.service'
 import { Observable, interval, timer } from 'rxjs';
 import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
+import { Router } from '@angular/router';
 
 @Component({
 	selector: 'app-landingpage',
@@ -37,6 +38,7 @@ export class LandingpageComponent implements OnInit {
 		private yts: YoutubeService,
 		private auth: AuthService,
 		private sanitizer: DomSanitizer,
+		private router: Router,
 		) {
 		 }
 
@@ -95,7 +97,15 @@ export class LandingpageComponent implements OnInit {
 		});
 	}
 
-	viewPost(){
+	goTo(post){
+
+		for (let item of this.blogposts){
+			if (item._id === post._id){
+				localStorage.setItem("chosenPostID", item._id);
+				console.log(item);
+				this.router.navigate(['/post/', item.titleLink])
+			}
+		}
 		
 	}
 

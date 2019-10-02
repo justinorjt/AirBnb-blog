@@ -9,17 +9,17 @@ import { AdminComponent } from './admin.component';
 import { BlogPostFormComponent } from '../shared/blog-post-form/blog-post-form.component';
 
 const routes: Routes = [
-{ path: '', redirectTo: 'dashboard', pathMatch: 'full' },
-{ path: 'dashboard', component: AdminComponent,
-children: [
-{ path: '', redirectTo: 'profile', pathMatch: 'full' },
-{ path: 'posts', component: ViewAllPostsComponent },
-{ path: 'comments', component: ViewCommentsComponent },
-{ path: 'users', component: ViewUsersComponent },
-{ path: 'profile', component: ProfileFormComponent },
-{ path: 'blog-form', component: BlogPostFormComponent },
-]
-}
+	{ path: '', redirectTo: 'dashboard', pathMatch: 'full' },
+	{ path: 'dashboard', component: AdminComponent,
+		children: [
+			{ path: '', redirectTo: 'profile', pathMatch: 'full' },
+			{ path: 'posts', component: ViewAllPostsComponent },
+			{ path: 'comments', component: ViewCommentsComponent },
+			{ path: 'users', component: ViewUsersComponent },
+			{ path: 'profile', component: ProfileFormComponent },
+			{ path: 'blog-form', component: BlogPostFormComponent },
+		]
+	}
 ];
 
 @NgModule({

@@ -19,7 +19,7 @@ small{
 }
 
 .jumbo-text{
-	color: var(--dark-red);
+	color: var(--dark-red) !important;
 	font-size: 78px;
 	letter-spacing: -3px;
 	font-weight: bold;
@@ -27,7 +27,8 @@ small{
 }
 
 .to-click:hover{
-	color: var(--auto-red);
+	color: var(--auto-red) !important;
+	cursor: pointer;
 }
 
 .description-text{

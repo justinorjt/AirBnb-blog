@@ -7,22 +7,27 @@ import { LandingpageComponent } from './landingpage/landingpage.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { BlogPostViewComponent } from './blog-post-view/blog-post-view.component';
 import { ViewAllKitsComponent } from './view-all-kits/view-all-kits.component';
+import { BlogPostFormComponent } from './shared/blog-post-form/blog-post-form.component';
 
 // LAZY MODULE
+import {SharedModule} from './shared/shared.module';
 import {AuthModule} from './auth/auth.module';
 import {AdminModule} from './admin/admin.module';
 import {EditorModule} from './editor/editor.module';
+import {MemberModule} from './member/member.module';
 import {ViewProfileModule} from './view-profile/view-profile.module'
 
 const routes: Routes = [
 { path: 'home', component: LandingpageComponent },
 { path: 'post/:titleLink', component: BlogPostViewComponent },
 { path: 'kit-collections', component: ViewAllKitsComponent },
+{ path: 'blog-post-form', component: BlogPostFormComponent },
 
 // LAZY LOADED MODULES
  {path: 'auth', loadChildren: () => import('./auth/auth.module').then(auth => auth.AuthModule)},
  {path: 'admin', loadChildren: () => import('./admin/admin.module').then(admin => admin.AdminModule)},
  {path: 'editor', loadChildren: () => import('./editor/editor.module').then(editor => editor.EditorModule)},
+ {path: 'member', loadChildren: () => import('./member/member.module').then(member => member.MemberModule)},
  {path: 'athor', loadChildren: () => import('./view-profile/view-profile.module').then(profile => profile.ViewProfileModule)},
 
 

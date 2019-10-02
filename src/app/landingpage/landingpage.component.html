@@ -6,7 +6,7 @@
 		<div *ngFor="let post of blogposts; let i=index;">
 			<div *ngIf="i<1">
 				<h1 class="">
-					<a routerLink="/post/{{post.titleLink}}" class="jumbo-text to-click">{{post.title}}</a>
+					<a (click)=goTo(post) class="jumbo-text to-click">{{post.title}}</a>
 				</h1>
 				<p class="lead" style="font-style: italic; color: var(--auto-red); font-size: 25px;">
 					{{post.description}}
@@ -22,7 +22,7 @@
 	</div>
 </div>
 
-<button routerLink="admin/dashboard/blog-form">Post New Article</button>
+<button routerLink="/blog-post-form">Post New Article</button>
 
 <!-- TRACK WILL CHANGE FOR MOBILE -->
 <div class="track d-flex mb-5 mx-auto col-md-10">
@@ -58,7 +58,7 @@
 		<article *ngFor="let post of blogposts; let i=index;" class="text-left">
 			<div *ngIf="i > 0 && i<6">
 				<div class="border-bottom pb-2 mb-2">
-					<h5><a routerLink="/post/{{post.titleLink}}" style="text-decoration:none; color: black; ">
+					<h5><a  (click)=goTo(post) style="text-decoration:none; color: black; ">
 						<strong class="to-click" >{{post.title | slice:0:80 }}</strong>
 					</a></h5>
 

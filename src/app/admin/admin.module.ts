@@ -5,7 +5,6 @@ import { SharedModule } from '../shared/shared.module';
 import { UiModule } from '../ui/ui.module';
 
 import { AdminComponent } from './admin.component';
-import { ViewAllPostsComponent } from '../shared/view-all-posts/view-all-posts.component';
 
 
 

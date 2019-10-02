@@ -13,7 +13,7 @@ class NavItem {
 export class AuthenticatedNavComponent implements OnInit {
 
   adminNav:NavItem[];
-  userNav:NavItem[];
+  memberNav:NavItem[];
   editorNav:NavItem[];
 
   constructor( public router: Router) { 
@@ -23,6 +23,20 @@ export class AuthenticatedNavComponent implements OnInit {
       new NavItem('Posts', './posts'),
       new NavItem('Comments', './comments'),
       new NavItem('Users', './users'),
+    ];
+
+    this.editorNav = [
+      new NavItem('Profile', './profile'),
+      new NavItem('Posts', './posts'),
+      new NavItem('Comments', './comments'),
+      // new NavItem('Users', './users'),
+    ];
+
+    this.memberNav = [
+      new NavItem('Profile', './profile'),
+      // new NavItem('Posts', './posts'),
+      // new NavItem('Comments', './comments'),
+      // new NavItem('Users', './users'),
     ];
 
   }

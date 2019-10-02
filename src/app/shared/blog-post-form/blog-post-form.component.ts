@@ -82,7 +82,7 @@ export class BlogPostFormComponent implements OnInit {
     this.modalClosed = true;
   }
 
-  updateBlogPost(tLink, blogPost){
+  updateBlogPost(id, blogPost){
     const bp = blogPost.value;
 
     const hyphenatedTitle = bp.title.replace(/[^a-z0-9+]+/gi, '+');
@@ -93,7 +93,7 @@ export class BlogPostFormComponent implements OnInit {
 
     this.previewPost = bp;
 
-    this.bps.updateBlogPost(tLink, bp).subscribe((data) => {
+    this.bps.updateBlogPost(id, bp).subscribe((data) => {
       console.log(data); 
       window.alert("You're post has been updated");
       // this.router.navigate(['/home']);

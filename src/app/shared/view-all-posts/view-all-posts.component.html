@@ -31,7 +31,7 @@
 		<ng-container matColumnDef="update">
 			<th mat-header-cell *matHeaderCellDef> Update </th>
 			<td mat-cell *matCellDef="let element">
-				<div class=" mx-1" (click)="redirectToUpdate(element.titleLink)">
+				<div class=" mx-1" (click)="redirectToUpdate(element._id)">
 					<i class="btn material-icons text-center" style="color: var(--dark-green);">edit</i>
 				</div>
 
@@ -41,7 +41,7 @@
 		<ng-container matColumnDef="delete">
 			<th mat-header-cell *matHeaderCellDef> Delete </th>
 			<td mat-cell *matCellDef="let element">
-				<div class=" mx-1" (click)="redirectToDelete(element.titleLink)">
+				<div class=" mx-1" (click)="redirectToDelete(element._id)">
 					<i class="btn material-icons text-center" style="color: var(--dark-red);">delete</i>
 				</div>
 			</td>

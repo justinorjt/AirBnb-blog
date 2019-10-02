@@ -20,7 +20,7 @@ export class ViewAllPostsComponent implements OnInit {
 
  @ViewChild(MatSort, {static: true}) sort: MatSort;
 
- public postLink;
+ public post_id;
  public PostEdit;
 
   constructor(private bps: BlogPostService) { }
@@ -32,7 +32,6 @@ export class ViewAllPostsComponent implements OnInit {
   public getAllPost = () => {
     this.bps.getAllBlogPost()
     .subscribe((res) => { 
-    	// const objectData = JSON.parse(res);
     	this.dataSource = new MatTableDataSource(res);
     	this.dataSource.sort = this.sort;
     });
@@ -43,17 +42,17 @@ export class ViewAllPostsComponent implements OnInit {
 
   }
  
-  public redirectToUpdate = (link: string) => {
-    this.postLink = link;
-    this.bps.getBlogPost(this.postLink).subscribe(data =>{
+  public redirectToUpdate = (id: string) => {
+    this.post_id = id;
+    this.bps.getBlogPost(this.post_id).subscribe(data =>{
     	this.PostEdit = data;
     	console.log(this.PostEdit);
     })
   }
  
-  public redirectToDelete = (link: string) => {
-    this.postLink = link;
-    this.bps.deleteBlogPost(this.postLink).subscribe(data => {
+  public redirectToDelete = (id: string) => {
+    this.post_id = id;
+    this.bps.deleteBlogPost(this.post_id).subscribe(data => {
     	console.log(data);
     	window.alert("This post " +data.title +" has been deleted");
     })
