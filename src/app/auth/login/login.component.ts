@@ -18,21 +18,28 @@ export class LoginComponent implements OnInit {
 	isSubmitted = false;
 
 
-	onSubmit(form:NgForm){
-		let creds = form.value;
-		this.isSubmitted = true;
-		// console.log(form.value.email);
+	// onSubmit(form:NgForm){
+	// 	let creds = form.value;
+	// 	this.isSubmitted = true;
+	// 	// console.log(form.value.email);
 
-		// this.auth.logIn(creds);
+	// 	// this.auth.logIn(creds);
+	// 	this.router.navigate(['/admin/dashboard']);
+		
+	// 	}
+
+	toAdmin(){
 		this.router.navigate(['/admin/dashboard']);
-		// this.auth.logIn(form.value.email, form.value.password).subscribe(data => {
-			// 	console.log(data);
-			// },
-			// error =>{
-				// 	if (error.status === 500) {
-					// 		// this.message = 'User Email Already exists'
-					// 		console.log('wtf man')
-					// 	}
-					// });
-		}
+
+	}
+
+	toEditor(){
+		this.router.navigate(['/editor/dashboard']);
+		
+	}
+
+	toMember(){
+		this.router.navigate(['/member/dashboard']);
+		
+	}
 }
