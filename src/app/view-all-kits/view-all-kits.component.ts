@@ -26,9 +26,10 @@ export class ViewAllKitsComponent implements OnInit {
 		return this.kcs.getKits()
 		.subscribe((data) => {
 			this.rawkits = data;
+			console.log(this.rawkits)
 
 			for  ( let item of this.rawkits){
-				const embed = "https://kit.com/embed?url=" + item;
+				const embed = "https://kit.com/embed?url=" + item.link;
 				const clean = this.sanitizer.bypassSecurityTrustResourceUrl(embed);
 				this.embedkits.push(clean);
 			}

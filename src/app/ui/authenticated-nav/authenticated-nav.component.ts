@@ -20,8 +20,8 @@ export class AuthenticatedNavComponent implements OnInit {
 
   	this.adminNav = [
       new NavItem('Profile', './profile'),
-      new NavItem('Posts', './posts'),
-      new NavItem('Comments', './comments'),
+      new NavItem('All Posts', './posts'),
+      new NavItem('All Comments', './comments'),
       new NavItem('Users', './users'),
     ];
 
@@ -34,7 +34,7 @@ export class AuthenticatedNavComponent implements OnInit {
 
     this.memberNav = [
       new NavItem('Profile', './profile'),
-      // new NavItem('Posts', './posts'),
+      new NavItem('Viewed Posts', './posts'),
       // new NavItem('Comments', './comments'),
       // new NavItem('Users', './users'),
     ];
